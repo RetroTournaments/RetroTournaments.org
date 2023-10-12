@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="/m-dark.compiled.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600&amp;subset=latin-ext" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="description" content="RetroTournaments.org - The home of the Competitive Retro Gaming Association (CRGA) and Argos: The technology stack for simultaneous time attack tournaments">
+        <meta name="author" content="Matthew">
+
+        <title> %%-HTML_TITLE-%% </title>
+    </head>
+    <body>
+        <header>
+            <nav id="navigation">
+                <div class="m-container">
+                    <div class="m-row">
+                        <a href="https://www.retrotournaments.org/" id="m-navbar-brand" class="m-col-t-9 m-col-m-none m-left-m">RETROTOURNAMENTS.ORG</a>
+                        <a id="m-navbar-show" href="#navigation" title="Show navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+                        <a id="m-navbar-hide" href="#" title="Hide navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+                        <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+                            <div class="m-row">
+                                <ol class="m-col-t-6 m-col-m-none">
+                                    <li>
+                                        <a href="/about/" %%-IFCURRENT_ABOUT-%%>Information</a>
+                                        <ol>
+                                            <li><a href="/about/" %%-IFCURRENT_ABOUT-%%>About</a></li>
+                                            <li><a href="/contact/" %%-IFCURRENT_CONTACT-%%>Contact</a></li>
+                                            <li><a href="/faq/" %%-IFCURRENT_FAQ-%%>Frequently Asked Questions</a></li>
+                                            <li><a href="/news/" %%-IFCURRENT_NEWS-%%>News</a></li>
+                                        </ol>
+                                    </li>
+                                    <li>
+                                        <a href="/results/" %%-IFCURRENT_RESULTS-%%>Results</a>
+                                        <ol>
+                                            <li><a href="/persons/" %%-IFCURRENT_PERSONS-%%>Persons</a></li>
+                                            <li><a href="/tournaments/" %%-IFCURRENT_TOURNAMENTS-%%>Tournaments</a></li>
+                                            <li><a href="/events/" %%-IFCURRENT_EVENTS-%%>Events</a></li>
+                                            <li><a href="/live/" %%-IFCURRENT_LIVE-%%>LIVE Results</a></li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                                <ol class="m-col-t-6 m-col-m-none" start="5">
+                                    <li>
+                                        <a href="/community/" %%-IFCURRENT_COMMUNITY-%%>Community</a>
+                                        <ol>
+                                            <li><a href="https://discord.gg/kpYYyw8B5P">Discord</a></li>
+                                            <li><a href="https://youtube.com/flibidydibidy">YouTube</a></li>
+                                        </ol>
+                                    </li>
+                                    <li>
+                                        <a href="/technology/" %%-IFCURRENT_TECHNOLOGY-%%>Technology</a>
+                                        <ol>
+                                            <li><a href="/blog/" %%-IFCURRENT_BLOG-%%>Blog</a></li>
+                                            <li><a href="/argos/" %%-IFCURRENT_ARGOS-%%>Argos</a></li>
+                                            <li><a href="https://github.com/RetroTournaments">GitHub</a></li>
+                                        </ol>
+                                    </li>
+                                    <li>
+                                        <a href="/support/" id="m-navbar-highlight">Support</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <article>
+%%-CONTENT-%%
+            </article>
+        </main>
+        <footer>
+            <nav>
+                <div class="m-container">
+                    <div class="m-row">
+                        <div class="m-col-s-3 m-col-t-6">
+                            <h3><a href="/about/">Information</a></h3>
+                            <ul>
+                                <li><a href="/about/">About</a></li>
+                                <li><a href="/contact/">Contact</a></li>
+                                <li><a href="/faq/">FAQ</a></li>
+                                <li><a href="/news/">News</a></li>
+                            </ul>
+                        </div>
+                        <div class="m-col-s-3 m-col-t-6">
+                            <h3><a href="/results/">Results</a></h3>
+                            <ul>
+                                <li><a href="/persons/">Persons</a></li>
+                                <li><a href="/tournaments/">Tournaments</a></li>
+                                <li><a href="/events/">Events</a></li>
+                                <li><a href="/live/">Live</a></li>
+                            </ul>
+                        </div>
+                        <div class="m-col-s-3 m-col-t-6">
+                            <h3><a href="/community/">Community</a></h3>
+                            <ul>
+                                <li><a href="https://discord.gg/kpYYyw8B5P">Discord</a></li>
+                                <li><a href="https://youtube.com/flibidydibidy">YouTube</a></li>
+                                <li><a href="/support/" style="font-weight: bold; color: #00ff00;">Support</a></li>
+                            </ul>
+                        </div>
+                        <div class="m-col-s-3 m-col-t-6">
+                            <h3><a href="/technology/">Technology</a></h3>
+                            <ul>
+                                <li><a href="/blog/">Blog</a></li>
+                                <li><a href="/argos/">Argos</a></li>
+                                <li><a href="https://github.com/RetroTournaments">GitHub</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="m-row">
+                        <div class="m-col-l-10 m-push-l-1">
+                            <p>
+                                <a href="https://retrotournaments.org">retrotournaments.org</a>. Copyright © Matthew Deutsch 2022-2023 and contributors. Powered by <a href="https://mcss.mosra.cz/">m.css</a>. Source on <a href="https://github.com/RetroTournaments/RetroTournaments.org">GitHub</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+    </body>
+</html>

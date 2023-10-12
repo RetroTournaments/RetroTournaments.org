@@ -1,0 +1,4 @@
+*.swp
+public/
+data/crgadb.db
+old/
