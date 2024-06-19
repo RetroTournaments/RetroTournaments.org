@@ -1,4 +1,4 @@
-# RetroTournaments.rog
+# RetroTournaments.org
 
 Repository for [RetroTournaments.org](https://www.retrotournaments.org/), the home of the **CRGA** - Competitive Retro Gaming Association and **ARGOS** the technology stack for simultaneous time attack tournaments.
 

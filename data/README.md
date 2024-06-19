@@ -8,7 +8,7 @@ The sqlite database contains the following tables:
 ```
 Table                       |   Description
 ---------------------------------------------------------------------------------
-person                      |   Every person that has competed in an tournament
+person                      |   Every person that has competed in a tournament
 event                       |   The different events
 tournament                  |   The tournaments
 tournament_final_standing   |   The final rankings for each tournament
