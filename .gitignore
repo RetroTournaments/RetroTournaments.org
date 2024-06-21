@@ -1,4 +1,7 @@
 *.swp
-public/
 data/crgadb.db
-old/
+.cache/
+node_modules/
+build/
+public/
+
