@@ -12,18 +12,3 @@ cd RetroTournaments.org
 
 ## Development
 
-To compile the static website run the make script [python3 make.py](./make.py).
-This will process the necessary markdown files and assets in [src](./src) into the untracked 'public' folder which is ultimately deployed as a static website.
-
-It may be useful to serve the website locally during development.
-One option to allow for live-reloading (which permits not having to press the refresh button in your browser after calling make.py) is to use [live-server.](https://www.npmjs.com/package/live-server)
-
-```
-pacman -S npm
-npm i -g live-server
-
-cd public
-live-server
-```
-
-This is all very much in progress.
