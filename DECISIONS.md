@@ -19,4 +19,15 @@ npm install prisma
 npx prisma init --datasource-provider sqlite
 ```
 
+At times to maintain schema format
+```
+npx prisma format
+```
+
+After the schema is written
+
+```
+npx prisma migrate dev --name init
+```
+
 

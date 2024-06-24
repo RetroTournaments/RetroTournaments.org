@@ -6,3 +6,4 @@ build/
 public/
 .env
 scripts/get_comments.json
+prisma/dev.db*
