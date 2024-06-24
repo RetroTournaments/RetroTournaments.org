@@ -1,0 +1,80 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Person {
+    id                  String          @id @default(cuid())
+
+    // The crgaid is 'AAAAAYYYY', and only for competitors. Does not change.
+    crgaid              String?         @unique
+
+    alias               String?
+
+    createdAt           DateTime        @default(now())
+    updatedAt           DateTime        @updatedAt
+
+    email               String?         @unique
+    discordUsername     String?         @unique
+    youtubeId           String?         @unique
+    kofiDisplayName     String?         @unique
+
+    active              Boolean         @default(true)
+    topContributor      Boolean         @default(false)
+
+    contributions       Contribution[]
+    kofiDonations       KofiDonation[]
+    superThanks         SuperThanks[]
+    superChats          SuperChat[]
+}
+
+////////////////////////////////////////////////////////////////////////////////
+model Contribution {
+    id                  Int             @id @default(autoincrement())
+
+    contributor         Person
+
+    createdAt           DateTime        @default(now())
+    description         String
+}
+
+model KofiDonation {
+    id                  Int             @id @default(autoincrement())
+
+    contributor         Person?
+    buyerEmail          String?
+    from                String
+
+    createdAt           DateTime        @default(now())
+    kofiTransactionId   String
+    amount              String
+    currency            String
+}
+
+model SuperThanks {
+    id                  Int             @id @default(autoincrement())
+
+    contributor         Person?
+    youtubeId           String?
+    youtubeHandle       String
+
+    createdAt           DateTime?       @default(now())
+    youtubeCommentId    String
+    amount              String
+}
+
+model SuperChat {
+    id                  Int             @id @default(autoincrement())
+
+    contributor         Person?
+    youtubeId           String
+    youtubeHandle       String
+
+    createdAt           DateTime        @default(now())
+    youtubeSuperChatId  String
+    amount              String
+}

@@ -4,4 +4,4 @@ data/crgadb.db
 node_modules/
 build/
 public/
-
+.env

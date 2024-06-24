@@ -1,4 +1,5 @@
 import {
+  Link,
   Links,
   Meta,
   Outlet,
@@ -15,6 +16,14 @@ export default function App() {
       <body>
         <h1>Hello world!</h1>
 
+        <ul>
+          <li>
+            <Link to={`/person/1`}>Person</Link>
+          </li>
+        </ul>
+        <div>
+          <Outlet />
+        </div>
         <Scripts />
       </body>
     </html>

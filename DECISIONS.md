@@ -10,3 +10,13 @@ Thus the first couple decisions are easy, and based on the ulterior goal of beco
 ## Setup
 Followed the main [Remix Quickstart](https://remix.run/docs/en/main/start/quickstart) guide, kinda roughly.
 First priority is to have `npm start dev` launch something that I can quickly iterate with (live reload!).
+
+## Database stuff
+Going to use Prisma (another transfer from work) and start with sqlite because I've been using sqlite previously. :|
+
+```
+npm install prisma
+npx prisma init --datasource-provider sqlite
+```
+
+
