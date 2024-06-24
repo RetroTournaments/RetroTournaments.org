@@ -22,6 +22,7 @@ model Person {
   discordUsername String? @unique
   youtubeId       String? @unique
   kofiDisplayName String? @unique
+  speedrunComId   String? @unique
 
   active         Boolean @default(true)
   topContributor Boolean @default(false)
@@ -36,16 +37,17 @@ model Person {
 model Contribution {
   id Int @id @default(autoincrement())
 
+  personId    String
   contributor Person @relation(fields: [personId], references: [id])
 
   createdAt   DateTime @default(now())
   description String
-  personId    String
 }
 
 model KofiDonation {
   id Int @id @default(autoincrement())
 
+  personId    String?
   contributor Person? @relation(fields: [personId], references: [id])
   buyerEmail  String?
   from        String
@@ -54,31 +56,30 @@ model KofiDonation {
   kofiTransactionId String
   amount            String
   currency          String
-  personId          String?
 }
 
 model SuperThanks {
   id Int @id @default(autoincrement())
 
+  personId      String?
   contributor   Person? @relation(fields: [personId], references: [id])
   youtubeId     String?
   youtubeHandle String
 
   createdAt        DateTime? @default(now())
-  youtubeCommentId String
+  youtubeCommentId String    @unique
   amount           String
-  personId         String?
 }
 
 model SuperChat {
   id Int @id @default(autoincrement())
 
+  personId      String?
   contributor   Person? @relation(fields: [personId], references: [id])
   youtubeId     String
   youtubeHandle String
 
   createdAt          DateTime @default(now())
-  youtubeSuperChatId String
+  youtubeSuperChatId String   @unique
   amount             String
-  personId           String?
 }
