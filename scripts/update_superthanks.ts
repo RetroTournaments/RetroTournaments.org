@@ -28,6 +28,7 @@ Bruh.
 
 import { PrismaClient } from '@prisma/client'
 import fs from 'fs'
+import { google } from 'googleapis'
 
 const prisma = new PrismaClient()
 
@@ -73,10 +74,47 @@ async function update_superthanks_via_youtube(commit: bool) {
     for (const superThanks of thanksNeedingUpdates) {
         commentIds.push(superThanks.youtubeCommentId);
     }
+    if (commentIds.length == 0) {
+        return
+    }
+
+    let id = commentIds.join(",")
+    console.log("Ask youtube for ids: ", id);
+
+    if (!commit) {
+        return
+    }
 
     // https://developers.google.com/youtube/v3/docs/comments/list
-    let id = commentIds.join(",")
-    console.log("Query youtube api for: ", id)
+    const youtube = google.youtube({
+        version: 'v3',
+        auth: process.env.GOOGLEAPIS_YOUTUBE_V3_API_KEY,
+    })
+
+    const response = await youtube.comments.list({
+        part: 'snippet',
+        id: id,
+    })
+    if (response.status != 200) {
+        console.error(response)
+        throw new Error('not 200 response??')
+    }
+
+    for (const comment of response.data.items) {
+        const youtubeCommentId = comment.id;
+        const youtubeId = comment.snippet.authorChannelId.value
+        const createdAt = comment.publishedAt
+
+        await prisma.superThanks.update({
+            where: {
+                youtubeCommentId: youtubeCommentId,
+            },
+            data: {
+                youtubeId: youtubeId,
+                createdAt: createdAt
+            },
+        })
+    }
 }
 
 async function main() {
@@ -109,7 +147,6 @@ async function main() {
         const amount = comment.paidCommentChipRenderer.pdgCommentChipRenderer.chipText.simpleText
 
         await add_superthanks(youtubeHandle, commentId, amount, commit)
-        break
     }
 
     update_superthanks_via_youtube(commit)

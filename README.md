@@ -11,4 +11,10 @@ cd RetroTournaments.org
 ```
 
 ## Development
+The keys in the `.env` file are:
+
+```
+DATABASE_URL="file:./dev.db"
+GOOGLEAPIS_YOUTUBE_V3_API_KEY= console.cloud.google.com youtube v3 credentials
+```
 
