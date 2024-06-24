@@ -11,7 +11,7 @@ cd RetroTournaments.org
 ```
 
 ## Development
-The keys in the `.env` file are:
+The sometimes necessary keys in the `.env` file are.
 
 ```
 DATABASE_URL="file:./dev.db"

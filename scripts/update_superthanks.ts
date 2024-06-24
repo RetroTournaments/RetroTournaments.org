@@ -14,15 +14,18 @@ To obtain the JSON file:
 Call this script with that file from the root directory. That is: 
     npx tsx scripts/update_superthanks.ts get_comments.json
 
-By default the script will not do anything, except say what it would do if you pass the '--commit' flag
+By default the script will not do anything, except say what it would do if you pass the '--commit' flag.
 */
 
 /*
 A better idea would be to have this script look at the comment threads on youtube and finds super thanks directly (instead of requiring the above steps to get a json file via clicking).
+
 This is close:
  https://developers.google.com/youtube/v3/docs/commentThreads/list
+
 However after a ton of searching through the api and google etc I eventually found this:
  https://issuetracker.google.com/issues/347509732
+
 Bruh.
 */
 
@@ -33,7 +36,7 @@ import { google } from 'googleapis'
 const prisma = new PrismaClient()
 
 async function add_superthanks(youtubeHandle: string, commentId: string, amount: string, commit: bool) {
-    // Function to add a super thanks record with the given arguments, if it doesn't already exist
+    // Add a super thanks record with the given arguments, if it doesn't already exist
     // Note that this leaves certain relevant fields null, which will have to be handled elsewhere.
     const superThanks = await prisma.superThanks.findUnique({
         where: {
@@ -63,7 +66,26 @@ async function add_superthanks(youtubeHandle: string, commentId: string, amount:
     }
 }
 
+async function import_superthanks_from_json(comments, commit) {
+    // Extract the relevant information from the comment renderer json obtained from the steps outlined at the top of the file.
+    // This is brittle, but youtube doesn't give me a proper API!
+    for (let comment of comments) {
+        if (comment.hasOwnProperty('messageRenderer')) {
+            continue
+        }
+
+        comment = comment.commentThreadRenderer.comment.commentRenderer
+
+        const youtubeHandle = comment.authorText.simpleText
+        const commentId = comment.commentId
+        const amount = comment.paidCommentChipRenderer.pdgCommentChipRenderer.chipText.simpleText
+
+        await add_superthanks(youtubeHandle, commentId, amount, commit)
+    }
+}
+
 async function update_superthanks_via_youtube(commit: bool) {
+    // Reach out to youtube and get the youtube channel id and publication time for super thanks that need it.
     const thanksNeedingUpdates = await prisma.superThanks.findMany({
         where: {
             youtubeId: null
@@ -117,6 +139,49 @@ async function update_superthanks_via_youtube(commit: bool) {
     }
 }
 
+async function sync_or_create_persons(commit: bool) {
+    // Find the person with the relevant youtube id (or create one to merge later)
+    const thanksNeedingUpdates = await prisma.superThanks.findMany({
+        where: {
+            personId: null,
+            youtubeId: { not: null },
+        }
+    });
+    if (thanksNeedingUpdates.length == 0) {
+        return
+    }
+
+    console.log("Linking/creating persons for ", thanksNeedingUpdates.length, " records");
+    if (!commit) {
+        return
+    }
+
+    for (const superThanks of thanksNeedingUpdates) {
+        let person = await prisma.person.findUnique({
+            where: {
+                youtubeId: superThanks.youtubeId
+            }
+        })
+        if (!person) {
+            person = await prisma.person.create({
+                data: {
+                    alias: superThanks.youtubeHandle,
+                    youtubeId: superThanks.youtubeId,
+                },
+            })
+        }
+
+        await prisma.superThanks.update({
+            where: {
+                id: superThanks.id,
+            },
+            data: {
+                personId: person.id,
+            },
+        })
+    }
+}
+
 async function main() {
     if (process.argv.length < 3 || process.argv.length > 4) {
         throw new Error("provide path to youtube json data, as 'npx tsx scripts/update_superthanks.ts get_comments.json'")
@@ -134,22 +199,9 @@ async function main() {
         }
     }
 
-    // This is brittle, but youtube doesn't give me a proper API!
-    for (let comment of data.contents.itemSectionRenderer.contents) {
-        if (comment.hasOwnProperty('messageRenderer')) {
-            continue
-        }
-
-        comment = comment.commentThreadRenderer.comment.commentRenderer
-
-        const youtubeHandle = comment.authorText.simpleText
-        const commentId = comment.commentId
-        const amount = comment.paidCommentChipRenderer.pdgCommentChipRenderer.chipText.simpleText
-
-        await add_superthanks(youtubeHandle, commentId, amount, commit)
-    }
-
-    update_superthanks_via_youtube(commit)
+    await import_superthanks_from_json(data.contents.itemSectionRenderer.contents, commit) 
+    await update_superthanks_via_youtube(commit)
+    await sync_or_create_persons(commit)
 }
 
 main()
