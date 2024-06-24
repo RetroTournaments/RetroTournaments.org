@@ -12,6 +12,7 @@
   "author": "",
   "license": "GPL-3.0-only",
   "dependencies": {
+    "@googleapis/youtube": "^18.0.0",
     "@prisma/client": "^5.15.1",
     "@remix-run/express": "^2.9.2",
     "@remix-run/node": "^2.9.2",
