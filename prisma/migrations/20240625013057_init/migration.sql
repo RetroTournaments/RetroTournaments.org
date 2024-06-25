@@ -27,7 +27,7 @@ CREATE TABLE "Contribution" (
 CREATE TABLE "KofiDonation" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "personId" TEXT,
-    "buyerEmail" TEXT,
+    "buyerEmail" TEXT NOT NULL,
     "from" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "kofiTransactionId" TEXT NOT NULL,
@@ -77,6 +77,9 @@ CREATE UNIQUE INDEX "Person_kofiDisplayName_key" ON "Person"("kofiDisplayName");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Person_speedrunComId_key" ON "Person"("speedrunComId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "KofiDonation_kofiTransactionId_key" ON "KofiDonation"("kofiTransactionId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "SuperThanks_youtubeCommentId_key" ON "SuperThanks"("youtubeCommentId");

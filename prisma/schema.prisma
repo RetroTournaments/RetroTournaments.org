@@ -49,11 +49,11 @@ model KofiDonation {
 
   personId    String?
   contributor Person? @relation(fields: [personId], references: [id])
-  buyerEmail  String?
+  buyerEmail  String
   from        String
 
   createdAt         DateTime @default(now())
-  kofiTransactionId String
+  kofiTransactionId String   @unique
   amount            String
   currency          String
 }

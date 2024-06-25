@@ -202,6 +202,10 @@ async function main() {
     await import_superthanks_from_json(data.contents.itemSectionRenderer.contents, commit) 
     await update_superthanks_via_youtube(commit)
     await sync_or_create_persons(commit)
+
+    if (!commit) {
+        console.log("Rerun with '--commit' to perform changes")
+    }
 }
 
 main()

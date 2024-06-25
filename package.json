@@ -18,6 +18,7 @@
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "cross-env": "^7.0.3",
+    "csv-parse": "^5.5.6",
     "express": "^4.19.2",
     "googleapis": "^140.0.0",
     "isbot": "^4.4.0",
