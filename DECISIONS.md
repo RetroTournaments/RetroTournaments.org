@@ -40,3 +40,14 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init --ts -p
 ```
 
+## daisyUI
+This is where I think things go off the rails.
+It's very difficult to choose a UI library it seems.
+And well, We'll try this one for now, but I don't think I'm happy with any of them.
+Followed instructions [here](https://daisyui.com/docs/install/)
+
+```
+npm i -D daisyui@latest
+vim tailwind.config.js
+```
+
