@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./server.js"
+    "dev": "remix vite:dev"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +29,9 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
     "vite": "^5.3.1"
   }
 }

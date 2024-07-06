@@ -30,4 +30,13 @@ After the schema is written
 npx prisma migrate dev --name init
 ```
 
+## Tailwind
+Tailwind gives me lots of css stuff.
+Seems pretty standard?
+Followed instructions [here](https://tailwindcss.com/docs/guides/remix)
+
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init --ts -p
+```
 
