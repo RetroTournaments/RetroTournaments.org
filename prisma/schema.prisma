@@ -31,6 +31,63 @@ model Person {
   kofiDonations KofiDonation[]
   superThanks   SuperThanks[]
   superChats    SuperChat[]
+  standings     TournamentFinalStanding[]
+  results       TournamentRoundResult[]
+}
+
+////////////////////////////////////////////////////////////////////////////////
+model Event {
+  id Int @id @default(autoincrement())
+
+  name      String
+  shortName String
+
+  createdAt DateTime @default(now())
+
+  tournaments Tournament[]
+}
+
+model Tournament {
+  id Int @id @default(autoincrement())
+
+  eventId Int
+  event   Event @relation(fields: [eventId], references: [id])
+
+  name String
+  date DateTime
+
+  event_order Int
+
+  standings TournamentFinalStanding[]
+  results   TournamentRoundResult[]
+}
+
+model TournamentFinalStanding {
+  id Int @id @default(autoincrement())
+
+  tournamentId Int
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+
+  personId String
+  person   Person @relation(fields: [personId], references: [id])
+
+  standing Int
+}
+
+model TournamentRoundResult {
+  id Int @id @default(autoincrement())
+
+  tournamentId Int
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+
+  personId String
+  person   Person @relation(fields: [personId], references: [id])
+
+  roundNumber Int
+  resultCode  Int
+
+  elapsedMilliseconds Int
+  accruedPoints       Int
 }
 
 ////////////////////////////////////////////////////////////////////////////////
