@@ -1,4 +1,5 @@
 import { json } from "@remix-run/node";
+import * as EmailValidator from 'email-validator';
 
 // This one can be used directly if there are other forms on the page
 export async function isNewsletterSignup(formData) {
@@ -7,7 +8,7 @@ export async function isNewsletterSignup(formData) {
   }
 
   const email = String(formData.get("newsletteremail"));
-  if (email.length == 0) {
+  if (!EmailValidator.validate(email)) {
     return json({"newsletterInfo": "Error: Try another email address?"});
   }
 
