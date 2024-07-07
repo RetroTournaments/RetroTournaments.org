@@ -7,7 +7,7 @@ export async function action({ request }) {
   return newsletterOnlyAction(request);
 }
 
-export default function Index() {
+export default function About() {
   const actionData = useActionData();
 
   return (

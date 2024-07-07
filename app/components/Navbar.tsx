@@ -24,16 +24,16 @@ function Navbar() {
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li>
-              <a>Information</a>
+              Information
               <ul className="p-2">
-                <li><a>About</a></li>
+                <li><Link to="/about">About</Link></li>
                 <li><a>Contact</a></li>
                 <li><a>Regulations</a></li>
                 <li><a>FAQ</a></li>
               </ul>
             </li>
             <li>
-              <a>Results</a>
+              Results
               <ul className="p-2">
                 <li><a>Persons</a></li>
                 <li><a>Tournaments</a></li>
@@ -41,7 +41,7 @@ function Navbar() {
               </ul>
             </li>
             <li>
-              <a>Community</a>
+              Community
               <ul className="p-2">
                 <li><a>Social</a></li>
                 <li><a>YouTube</a></li>
@@ -49,7 +49,7 @@ function Navbar() {
               </ul>
             </li>
             <li>
-              <a>Technology</a>
+              Technology
               <ul className="p-2">
                 <li><a>Blog</a></li>
                 <li><a>Argos</a></li>
@@ -66,7 +66,7 @@ function Navbar() {
           <div className="dropdown dropdown-hover">
             <div tabIndex={0} role="button" className="btn m-1 no-animation">Information</div>
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-              <li><a>About</a></li>
+              <li><Link to="/about">About</Link></li>
               <li><a>Contact</a></li>
               <li><a>Regulations</a></li>
               <li><a>Frequently Asked Questions</a></li>
@@ -101,7 +101,7 @@ function Navbar() {
       </div>
     </div>
   </>
-);
+  );
 }
 
 export default Navbar;
