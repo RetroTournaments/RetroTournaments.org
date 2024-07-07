@@ -140,3 +140,10 @@ model SuperChat {
   youtubeSuperChatId String   @unique
   amount             String
 }
+
+////////////////////////////////////////////////////////////////////////////////
+model MailingList {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
