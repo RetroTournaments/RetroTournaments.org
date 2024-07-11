@@ -15,6 +15,9 @@ The sometimes necessary keys in the `.env` file are.
 
 ```
 DATABASE_URL="file:./dev.db"
+BASE_URL="RetroTournaments.org" or "localhost:5173"
 GOOGLEAPIS_YOUTUBE_V3_API_KEY= console.cloud.google.com youtube v3 credentials
+POSTMARK_API_KEY= https://postmarkapp.com/
+EMAIL_SECRET_KEY= a 32 length string
 ```
 

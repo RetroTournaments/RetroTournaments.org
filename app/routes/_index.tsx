@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import MailingListSuccessAlert from '../components/MailingListSuccessAlert'
 import { newsletterOnlyAction } from '../util/newsletter'
 import { useActionData } from "@remix-run/react";
 
@@ -12,6 +13,7 @@ export default function Index() {
 
   return (
     <>
+      <MailingListSuccessAlert />
       <Navbar />
       <Footer newsletterInfo={actionData?.newsletterInfo}/>
     </>

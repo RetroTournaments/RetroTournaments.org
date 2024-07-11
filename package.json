@@ -13,7 +13,7 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "@googleapis/youtube": "^18.0.0",
-    "@prisma/client": "^5.16.1",
+    "@prisma/client": "^5.16.2",
     "@remix-run/express": "^2.9.2",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
@@ -23,7 +23,8 @@
     "express": "^4.19.2",
     "googleapis": "^140.0.0",
     "isbot": "^4.4.0",
-    "prisma": "^5.15.1",
+    "lz-string": "^1.5.0",
+    "postmark": "^4.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tsx": "^4.15.7"
@@ -32,7 +33,10 @@
     "@remix-run/dev": "^2.9.2",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.12.10",
+    "eslint-plugin-react": "^7.34.3",
+    "globals": "^15.8.0",
     "postcss": "^8.4.39",
+    "prisma": "^5.16.2",
     "tailwindcss": "^3.4.4",
     "vite": "^5.3.1"
   }
