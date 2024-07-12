@@ -27,7 +27,7 @@ function Navbar() {
               Information
               <ul className="p-2">
                 <li><Link to="/about">About</Link></li>
-                <li><a>Contact</a></li>
+                <li><Link to="/contact">Contact</Link></li>
                 <li><a>Regulations</a></li>
                 <li><a>FAQ</a></li>
               </ul>
@@ -67,7 +67,7 @@ function Navbar() {
             <div tabIndex={0} role="button" className="btn m-1 no-animation">Information</div>
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
               <li><Link to="/about">About</Link></li>
-              <li><a>Contact</a></li>
+              <li><Link to="/contact">Contact</Link></li>
               <li><a>Regulations</a></li>
               <li><a>Frequently Asked Questions</a></li>
             </ul>
