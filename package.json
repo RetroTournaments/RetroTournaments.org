@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",
+    "@tailwindcss/typography": "^0.5.13",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.12.10",
     "eslint-plugin-react": "^7.34.3",
