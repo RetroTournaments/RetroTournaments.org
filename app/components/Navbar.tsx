@@ -43,8 +43,8 @@ function Navbar() {
               Community
               <ul className="p-2">
                 <li><a>Social</a></li>
-                <li><a href="https://www.youtube.com/flibidydibidy">YouTube</a></li>
-                <li><a href="https://discord.gg/kpYYyw8B5P">Discord</a></li>
+                <li><a href="https://www.youtube.com/flibidydibidy">YouTube↗</a></li>
+                <li><a href="https://discord.gg/kpYYyw8B5P">Discord↗</a></li>
               </ul>
             </li>
             <li>
@@ -52,7 +52,7 @@ function Navbar() {
               <ul className="p-2">
                 <li><a>Blog</a></li>
                 <li><a>Argos</a></li>
-                <li><a>Github</a></li>
+                <li><a href="https://github.com/RetroTournaments/">Github↗</a></li>
               </ul>
             </li>
             <li><Link to="/support">Support</Link></li>
@@ -82,8 +82,8 @@ function Navbar() {
             <div tabIndex={0} role="button" className="btn m-1 no-animation">Community</div>
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
               <li><a>Social</a></li>
-              <li><a href="https://www.youtube.com/flibidydibidy">YouTube</a></li>
-              <li><a href="https://discord.gg/kpYYyw8B5P">Discord</a></li>
+              <li><a href="https://www.youtube.com/flibidydibidy">YouTube↗</a></li>
+              <li><a href="https://discord.gg/kpYYyw8B5P">Discord↗</a></li>
             </ul>
           </div>
           <div className="dropdown dropdown-hover">
@@ -91,7 +91,7 @@ function Navbar() {
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
               <li><a>Blog</a></li>
               <li><a>Argos</a></li>
-              <li><a>Github</a></li>
+              <li><a href="https://github.com/RetroTournaments/">Github↗</a></li>
             </ul>
           </div>
         </div>

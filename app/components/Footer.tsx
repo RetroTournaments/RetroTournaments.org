@@ -21,13 +21,13 @@ function Footer({ newsletterInfo }) {
         <nav>
           <h6 className="footer-title">Community</h6>
           <a className="link link-hover">Social</a>
-          <a href="https://www.youtube.com/flibidydibidy" className="link link-hover">YouTube</a>
-          <a href="https://discord.gg/kpYYyw8B5P" className="link link-hover">Discord</a>
+          <a href="https://www.youtube.com/flibidydibidy" className="link link-hover">YouTube↗</a>
+          <a href="https://discord.gg/kpYYyw8B5P" className="link link-hover">Discord↗</a>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
+          <Link to="/termsofuse" className="link link-hover">Terms of use</Link>
+          <Link to="/privacypolicy" className="link link-hover">Privacy policy</Link>
           <Link to="/support"> <h6 className="footer-title text-accent">Support</h6> </Link>
         </nav>
 
