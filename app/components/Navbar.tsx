@@ -29,7 +29,6 @@ function Navbar() {
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
                 <li><a>Regulations</a></li>
-                <li><a>FAQ</a></li>
               </ul>
             </li>
             <li>
@@ -69,7 +68,6 @@ function Navbar() {
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact</Link></li>
               <li><a>Regulations</a></li>
-              <li><a>Frequently Asked Questions</a></li>
             </ul>
           </div>
           <div className="dropdown dropdown-hover">

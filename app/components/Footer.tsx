@@ -8,8 +8,8 @@ function Footer({ newsletterInfo }) {
       <footer className="footer bg-base-200 text-base-content p-10 max-w-6xl">
         <nav>
           <h6 className="footer-title">Information</h6>
-          <a className="link link-hover">About</a>
-          <a className="link link-hover">Contact</a>
+          <Link to="/about" className="link link-hover">About</Link>
+          <Link to="/contact" className="link link-hover">Contact</Link>
           <a className="link link-hover">Regulations</a>
         </nav>
         <nav>
@@ -21,8 +21,8 @@ function Footer({ newsletterInfo }) {
         <nav>
           <h6 className="footer-title">Community</h6>
           <a className="link link-hover">Social</a>
-          <a className="link link-hover">YouTube</a>
-          <a className="link link-hover">Discord</a>
+          <a href="https://www.youtube.com/flibidydibidy" className="link link-hover">YouTube</a>
+          <a href="https://discord.gg/kpYYyw8B5P" className="link link-hover">Discord</a>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
