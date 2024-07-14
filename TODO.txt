@@ -1,0 +1,4 @@
+Working on results/
+- persons
+- tournaments
+- events
