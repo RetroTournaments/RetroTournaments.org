@@ -10,7 +10,7 @@ function Footer({ newsletterInfo }) {
           <h6 className="footer-title">Information</h6>
           <Link to="/about" className="link link-hover">About</Link>
           <Link to="/contact" className="link link-hover">Contact</Link>
-          <a className="link link-hover">Regulations</a>
+          <Link to="/regulations">Regulations</Link>
         </nav>
         <nav>
           <h6 className="footer-title">Results</h6>

@@ -28,7 +28,7 @@ function Navbar() {
               <ul className="p-2">
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
-                <li><a>Regulations</a></li>
+                <li><Link to="/regulations">Regulations</Link></li>
               </ul>
             </li>
             <li>
@@ -67,7 +67,7 @@ function Navbar() {
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact</Link></li>
-              <li><a>Regulations</a></li>
+              <li><Link to="/regulations">Regulations</Link></li>
             </ul>
           </div>
           <div className="dropdown dropdown-hover">
