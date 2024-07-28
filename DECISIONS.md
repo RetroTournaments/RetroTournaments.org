@@ -54,3 +54,7 @@ vim tailwind.config.js
 ## postmark
 For delivering emails.
 Initial decision because something was needed and this is what work uses!
+
+
+## AGGrid
+Because headless stuff required me to DO STUFF that I don't know how to do.

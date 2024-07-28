@@ -10,12 +10,16 @@ export const getPersonsTable = async () => {
         select: {
             alias: true,
             crgaid: true,
+            _count: {
+                select: {
+                    standings: true,
+                    results: true,
+                }
+            },
         },
         where: {
             active: true,
-            results: {
-                some: {}
-            }
+            crgaid: { not: null }
         },
     })
 }
