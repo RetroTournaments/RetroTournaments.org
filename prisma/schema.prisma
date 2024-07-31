@@ -84,6 +84,12 @@ model TournamentRoundResult {
   person   Person @relation(fields: [personId], references: [id])
 
   roundNumber Int
+  // 0 | SUCCESS. The person successfully started and completed the
+  //   | speedrun within the time limit.
+  // 1 | DNF. The person did not finish the speedrun.
+  // 2 | DNS. The person did not start the speedrun.
+  // 3 | WLK. This person got a 'walkover' and won because every other
+  //   | scheduled person did not start or otherwise forfeited.
   resultCode  Int
 
   elapsedMilliseconds Int

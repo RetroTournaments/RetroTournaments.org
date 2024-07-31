@@ -1,4 +1,5 @@
 import { prisma } from './prisma'
+import moment from 'moment'
 
 export const getPersonsTable = async () => {
     return prisma.person.findMany({
@@ -24,4 +25,67 @@ export const getPersonsTable = async () => {
     })
 }
 
+export const getPerson = async(crgaid) => {
+    return prisma.person.findUnique({
+        select: {
+            crgaid: true,
+            alias: true,
+            active: true,
+            topContributor: true,
+            standings: {
+                select: {
+                    standing: true,
+                    tournament: true,
+                }
+            },
+            results: true,
+        },
+        where: {
+            crgaid: crgaid
+        },
+    })
+}
 
+export function extractPersonSummary(person) {
+    let member_since = null;
+    let podiums = 0;
+    let events = new Set()
+    for (const stnd of person.standings) {
+        if (member_since == null || stnd.tournament.date < member_since) {
+            member_since = stnd.tournament.date;
+        }
+        if (stnd.standing <= 3) {
+            podiums++;
+        }
+        events.add(stnd.tournament.eventId)
+    }
+    member_since = moment(member_since).format('MMMM Do, YYYY')
+    let num_events = events.size;
+    let num_tournaments = person.standings.length;
+    let num_completed = 0;
+    for (const race of person.results) {
+        if (race.resultCode == 0 || race.resultCode == 3) {
+            num_completed++;
+        }
+    }
+    let num_attempted = person.results.length;
+
+    const rowData = [{
+        member_since: member_since,
+        num_tournaments: num_tournaments,
+        num_races: num_completed + " / " + num_attempted,
+        num_events: num_events,
+        podiums: podiums,
+    }];
+    return rowData;
+}
+
+export const randomPersonCRGAId = async() => {
+    // TODO lol
+    const persons = await prisma.person.findMany({
+        select: {
+            crgaid: true
+            }
+        })
+    return persons[Math.floor(Math.random() * persons.length)].crgaid;
+}
