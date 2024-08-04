@@ -80,8 +80,20 @@ export function extractPersonSummary(person) {
     return rowData;
 }
 
+export function getPersonRecords(person) {
+    let events = new Set()
+    for (const stnd of person.standings) {
+        events.add(stnd.tournament.eventId)
+    }
+
+    const rowData = [{
+        hi: true
+    }];
+    return rowData;
+}
+
 export const randomPersonCRGAId = async() => {
-    // TODO lol
+    // TODO!!!
     const persons = await prisma.person.findMany({
         select: {
             crgaid: true
@@ -89,3 +101,4 @@ export const randomPersonCRGAId = async() => {
         })
     return persons[Math.floor(Math.random() * persons.length)].crgaid;
 }
+

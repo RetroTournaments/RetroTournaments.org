@@ -1,8 +1,10 @@
 import PersonHeading from '../components/PersonHeading.tsx';
 import PersonSummary from '../components/PersonSummary.tsx';
 import PersonRandom from '../components/PersonRandom.tsx';
+import PersonRecords from '../components/PersonRecords.tsx';
 import { useLoaderData } from "@remix-run/react";
 import { getPerson, randomPersonCRGAId } from '../util/person.tsx';
+import { getEventLeaderboard } from '../util/event.tsx';
 import { redirect } from "@remix-run/node";
 
 export const loader = async ({ params }) => {
@@ -25,6 +27,7 @@ export default function Persons() {
             <article className="prose p-4">
                 <PersonHeading person={person} />
                 <PersonSummary person={person} />
+                <PersonRecords person={person} />
                 <PersonRandom />
             </article>
           </div>
