@@ -5,18 +5,18 @@ import { getPersonRecords } from '../util/person.tsx';
 
 function PersonRecords({ person }) {
     const rowData = getPersonRecords(person);
+    const height = 50 + 50 * rowData.length;
 
     const colDefs = [
-        { headerName: 'Event', field: 'event', width: 190 },
+        { headerName: 'Event', field: 'event', width: 250 },
         { headerName: 'Personal Best', field: 'personal_best', width: 170 },
-        { headerName: 'PB Standing', field: 'pb_standing', width: 130 },
     ]
 
     return (
         <>
             <h2> Personal Records </h2>
 
-            <div className="ag-theme-quartz-auto-dark" style={{ height: 100,  width:800}} >
+            <div className="ag-theme-quartz-auto-dark" style={{ height: height,  width:800}} >
             <AgGridReact
                 rowData={rowData}
                 columnDefs={colDefs}

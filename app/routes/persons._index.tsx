@@ -2,6 +2,7 @@ import { getPersonsTable } from '../util/person.tsx';
 import { useLoaderData } from 'react-router-dom';
 import { Link } from '@remix-run/react';
 import PersonGrid from '../components/PersonGrid.tsx';
+import PersonRandom from '../components/PersonRandom.tsx';
 
 export async function loader({ request }) {
     return await getPersonsTable();
@@ -20,6 +21,9 @@ export default function PersonsIndex() {
           </div>
 
           <PersonGrid rowData={rowData} />
+          <article className="prose p-4">
+            <PersonRandom />
+          </article>
         </div>
       </>
     )

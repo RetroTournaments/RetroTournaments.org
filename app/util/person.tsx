@@ -1,5 +1,7 @@
 import { prisma } from './prisma'
 import moment from 'moment'
+import { smb_time_format } from './smb'
+import { ordinal } from './ordinal'
 
 export const getPersonsTable = async () => {
     return prisma.person.findMany({
@@ -36,6 +38,13 @@ export const getPerson = async(crgaid) => {
                 select: {
                     standing: true,
                     tournament: true,
+                }
+            },
+            personalBests: {
+                select: {
+                    event: true,
+                    standing: true,
+                    elapsedMilliseconds: true,
                 }
             },
             results: true,
@@ -81,14 +90,14 @@ export function extractPersonSummary(person) {
 }
 
 export function getPersonRecords(person) {
-    let events = new Set()
-    for (const stnd of person.standings) {
-        events.add(stnd.tournament.eventId)
+    const rowData = [];
+    for (const v of person.personalBests) {
+        rowData.push({
+            "event": v.event.name,
+            "personal_best": 
+                smb_time_format(v.elapsedMilliseconds) + " [" + ordinal(v.standing) + "]",
+        })
     }
-
-    const rowData = [{
-        hi: true
-    }];
     return rowData;
 }
 
