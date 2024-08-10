@@ -40,6 +40,7 @@ async function main() {
     let person_id = {}
     let event_id = {}
     let tournament_id = {}
+    let tournament_event_id = {}
 
     const datasql = fs.readFileSync('data/data.sql', 'utf-8')
     for (const line of datasql.split('\n')) {
@@ -80,6 +81,7 @@ async function main() {
                 }
             })
             tournament_id[result.values[0]] = tourney.id;
+            tournament_event_id[result.values[0]] = event_id[result.values[1]]
             console.log('Add Tournament: ', tourney.name);
         } else if (result.table == 'tournament_final_standing') {
             const stnding = await prisma.tournamentFinalStanding.create({
@@ -110,6 +112,11 @@ async function main() {
                             id: person_id[result.values[2]],
                         }
                     },
+                    event: {
+                        connect: {
+                            id: tournament_event_id[result.values[1]],
+                        }
+                    },
                     roundNumber: result.values[3],
                     resultCode: result.values[4],
                     elapsedMilliseconds: result.values[5],
@@ -121,9 +128,7 @@ async function main() {
 }
 
 main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
+  .then(async () => { await prisma.$disconnect() })
   .catch(async (e) => {
     console.error(e)
     await prisma.$disconnect()
