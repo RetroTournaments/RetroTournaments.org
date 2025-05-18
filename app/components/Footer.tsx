@@ -10,7 +10,6 @@ function Footer({ newsletterInfo }) {
           <h6 className="footer-title">Information</h6>
           <Link to="/about" className="link link-hover">About</Link>
           <Link to="/contact" className="link link-hover">Contact</Link>
-          <Link to="/regulations">Regulations</Link>
         </nav>
         <nav>
           <h6 className="footer-title">Results</h6>
@@ -20,7 +19,6 @@ function Footer({ newsletterInfo }) {
         </nav>
         <nav>
           <h6 className="footer-title">Community</h6>
-          <a className="link link-hover">Social</a>
           <a href="https://www.youtube.com/flibidydibidy" className="link link-hover">YouTube↗</a>
           <a href="https://discord.gg/kpYYyw8B5P" className="link link-hover">Discord↗</a>
         </nav>

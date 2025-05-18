@@ -4,10 +4,16 @@ import MailingListForm from './MailingListForm'
 function WelcomeTextHero() {
   return (
   <>
-    <div className="hero bg-base-100 min-h-80">
+    <div className="hero bg-base-100 min-h-48">
       <div className="hero-content text-center">
-        <div className="max-w-2xl">
-          <h1 className="text-5xl font-bold">WELCOME TO RETRO TOURNAMENTS</h1>
+        <div className="max-w-3xl pl-8">
+          <h1 className="text-5xl font-bold">WELCOME TO RETROTOURNAMENTS.ORG</h1>
+        </div>
+      </div>
+    </div>
+    <div className="hero">
+      <div className="hero-content">
+        <div className="max-w-3xl pl-8">
           <p className="py-6">
             Welcome to the home of the <Link className="link link-primary" to="/about">Competitive Retro Gaming Association (CRGA)</Link>: A group of people working towards funner, and fairer, retro speedrunning competitions.
             And also to the home of <Link className="link link-primary" to="/argos">Argos</Link>: the original open-source technology stack for simultaneous time attack tournaments.
@@ -23,11 +29,8 @@ function WelcomeTextHero() {
 function SimulTimeAttackHero() {
   return (
   <>
-  <div className="hero bg-base-100 min-h-96">
+  <div className="hero min-h-64">
     <div className="hero-content flex-col sm:flex-row">
-      <img
-        src="/sta_1.png"
-        className="max-w-sm rounded-lg shadow-2xl" />
       <div className="max-w-3xl pl-8">
         <h4 className="text-3xl">Home of the</h4> 
         <h1 className="text-5xl font-bold"><span className="text-primary"><i>Simultaneous Time Attack</i></span></h1>
