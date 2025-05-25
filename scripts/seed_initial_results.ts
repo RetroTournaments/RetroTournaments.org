@@ -100,6 +100,17 @@ async function main() {
                 }
             })
         } else if (result.table == 'tournament_round_result') {
+
+            // Transform old result code into new result code to facilitate
+            // sorting. Yeah...
+            let newresultcode = result.values[4] + 1;
+            if (newresultcode == 1) {
+                newresultcode = 0;
+            } else if (newresultcode == 4) {
+                newresultcode = 1;
+            }
+
+
             const rnd = await prisma.tournamentRoundResult.create({
                 data: {
                     tournament: {
@@ -118,7 +129,7 @@ async function main() {
                         }
                     },
                     roundNumber: result.values[3],
-                    resultCode: result.values[4],
+                    resultCode: newresultcode,
                     elapsedMilliseconds: result.values[5],
                     accruedPoints: result.values[6],
                 }

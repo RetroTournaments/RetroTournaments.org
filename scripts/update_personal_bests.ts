@@ -10,7 +10,6 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-
     // This is almost there, but due to:
     //  https://github.com/prisma/prisma/discussions/6517
     // I don't think I can actually do it.
