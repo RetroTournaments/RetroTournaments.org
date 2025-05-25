@@ -24,7 +24,7 @@ export default function Contact() {
         </p>
 
         <p>
-            You can also join the <a href="https://discord.gg/kpYYyw8B5P">Discord</a>, and leave a message in the relevant channel.
+            You can also join the <a href="https://discord.gg/kpYYyw8B5P">Discord↗</a>, and leave a message in the relevant channel.
         </p>
         </article>
       </div>
