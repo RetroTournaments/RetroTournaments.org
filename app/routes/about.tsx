@@ -19,7 +19,7 @@ export default function About() {
       <article className="prose max-w-3xl">
         <h1>Who we are</h1>
         <p>
-            <Link to="/">RetroTournaments.org</Link> is the home of two initiatives: the Competitive Retro Gaming Association is devoted to organizing, <Link to="/regulations">governing</Link>, and <Link to="/results/tournaments">documenting</Link> the greatest retro speedrunning competitions in the world, and <Link to="/argos">Argos</Link> is the open-source technology stack which supports those competitions and other simultaneous time attack tournaments.
+            <Link to="/">RetroTournaments.org</Link> is the home of two initiatives: the Competitive Retro Gaming Association is devoted to organizing, governing, and <Link to="/tournaments">documenting</Link> the greatest retro speedrunning competitions in the world, and <Link to="/argos">Argos</Link> is the open-source technology stack which supports those competitions and other simultaneous time attack tournaments.
             We are a group of speedrunners, and speedrunning enthusiasts, who are working to celebrate retro gaming, friendly competition, and the joy that comes from achieving your goals.
         </p>
         <p>

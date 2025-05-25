@@ -4,8 +4,7 @@ import { prisma } from './prisma'
 import { postmarkClient } from './postmark'
 import { encrypt, decrypt } from './crypto'
 
-export async function contactNewSignup(email) {
-
+export async function contactNewSignup(email: string) {
   const link = process.env.BASE_URL + "/newsletter/" + encrypt(email);
 
   const htmlBody = "Hello! \\n\\n" +
@@ -35,7 +34,7 @@ export async function contactNewSignup(email) {
   })
 }
 
-export async function newsletterSignup(email) {
+export async function newsletterSignup(email: string) {
   if (!EmailValidator.validate(email)) {
     return json({"newsletterInfo": "Error: Try another email address?"});
   }
@@ -52,7 +51,7 @@ export async function newsletterSignup(email) {
     // they are already confirmed, but maybe they just forgot to activate
     let now = new Date();
     if (!list.active) {
-      if (!list.contactedAt || (now - list.contactedAt) > 10 * 60 * 1000) {
+      if (!list.contactedAt || (now - list.contactedAt) > 30 * 60 * 1000) {
         contactNewSignup(email)
       }
     }

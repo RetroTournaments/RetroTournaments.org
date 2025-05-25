@@ -1,23 +1,29 @@
 # RetroTournaments.org
 
-Repository for [RetroTournaments.org](https://www.retrotournaments.org/), the home of the **CRGA** - Competitive Retro Gaming Association and **ARGOS** the technology stack for simultaneous time attack tournaments.
+Repository for [RetroTournaments.org](https://www.retrotournaments.org/).
 
 ## Setup
 
-Clone the repository and install necessary utilities.
+Clone the repository.
 ```
 git clone https://github.com/RetroTournaments/RetroTournaments.org
 cd RetroTournaments.org
 ```
 
+
+
+
 ## Development
-The sometimes necessary keys in the `.env` file are.
+
+Initial setup
+```
+cp env-template .env
+# Fill out the relevant keys
+
+npx prisma migrate dev --name init
+```
+
 
 ```
-DATABASE_URL="file:./dev.db"
-BASE_URL="RetroTournaments.org" or "localhost:5173"
-GOOGLEAPIS_YOUTUBE_V3_API_KEY= console.cloud.google.com youtube v3 credentials
-POSTMARK_API_KEY= https://postmarkapp.com/
-EMAIL_SECRET_KEY= a 32 length string
+npm run dev
 ```
-
