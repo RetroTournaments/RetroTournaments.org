@@ -5,7 +5,7 @@ import MailingListForm from './MailingListForm'
 function WelcomeTextHero() {
   return (
   <>
-    <div className="hero min-h-64">
+    <div className="hero pt-6">
       <div className="hero-content text-center">
         <div className="max-w-2xl">
           <h1 className="text-5xl font-bold">WELCOME TO RETRO TOURNAMENTS</h1>
@@ -24,7 +24,7 @@ function YoutubeVideoHighlights() {
   return (
   <>
     <div className="flex justify-center">
-      <div className="max-w-3xl w-full">
+      <div className="max-w-3xl w-full pb-4">
         <h1 className="text-2xl font-bold">Check out these highlights from a past event</h1>
         <div style={{"position": "relative", "width":"100%", "height":"0", "padding-bottom":"56.25%"}}>
           <iframe src="https://www.youtube.com/embed/3WRWz7XG3Os?si=eZmOm2_juYXavVcq" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{"position":"absolute", "top":"0", "left":"0", "width":"100%", "height":"100%"}}></iframe>
