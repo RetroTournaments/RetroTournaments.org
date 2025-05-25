@@ -33,6 +33,8 @@ model Person {
   superChats    SuperChat[]
   standings     TournamentFinalStanding[]
   results       TournamentRoundResult[]
+  personalBests PersonalBest[]
+  simpleELOs    SimpleELO[]
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +46,10 @@ model Event {
 
   createdAt DateTime @default(now())
 
-  tournaments Tournament[]
+  tournaments            Tournament[]
+  personalBests          PersonalBest[]
+  simpleELOs             SimpleELO[]
+  tournamentRoundResults TournamentRoundResult[]
 }
 
 model Tournament {
@@ -58,8 +63,9 @@ model Tournament {
 
   event_order Int
 
-  standings TournamentFinalStanding[]
-  results   TournamentRoundResult[]
+  standings     TournamentFinalStanding[]
+  results       TournamentRoundResult[]
+  personalBests PersonalBest[]
 }
 
 model TournamentFinalStanding {
@@ -80,14 +86,53 @@ model TournamentRoundResult {
   tournamentId Int
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
 
+  eventId Int
+  event   Event @relation(fields: [eventId], references: [id])
+
   personId String
   person   Person @relation(fields: [personId], references: [id])
 
   roundNumber Int
+  // 0 | SUCCESS. The person successfully started and completed the
+  //   | speedrun within the time limit.
+  // 1 | WLK. This person got a 'walkover' and won because every other
+  //   | scheduled person did not start or otherwise forfeited.
+  // 2 | DNF. The person did not finish the speedrun.
+  // 3 | DNS. The person did not start the speedrun.
   resultCode  Int
 
   elapsedMilliseconds Int
   accruedPoints       Int
+}
+
+////////////////////////////////////////////////////////////////////////////////
+model PersonalBest {
+  id Int @id @default(autoincrement())
+
+  personId String
+  person   Person @relation(fields: [personId], references: [id])
+
+  eventId Int
+  event   Event @relation(fields: [eventId], references: [id])
+
+  tournamentId Int
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+
+  standing            Int
+  elapsedMilliseconds Int
+}
+
+model SimpleELO {
+  id Int @id @default(autoincrement())
+
+  personId String
+  person   Person @relation(fields: [personId], references: [id])
+
+  eventId Int
+  event   Event @relation(fields: [eventId], references: [id])
+
+  standing  Int
+  simpleELO Int
 }
 
 ////////////////////////////////////////////////////////////////////////////////
