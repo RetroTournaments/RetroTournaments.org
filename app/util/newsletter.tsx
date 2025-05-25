@@ -4,6 +4,7 @@ import { prisma } from './prisma'
 import { postmarkClient } from './postmark'
 import { encrypt, decrypt } from './crypto'
 
+// This currently is not called :)
 export async function contactNewSignup(email: string) {
   const link = process.env.BASE_URL + "/newsletter/" + encrypt(email);
 
@@ -38,8 +39,7 @@ export async function newsletterSignup(email: string) {
   if (!EmailValidator.validate(email)) {
     return json({"newsletterInfo": "Error: Try another email address?"});
   }
-  // to avoid leaking information we always return this message
-  const ret = json({"newsletterInfo": "Thanks! Please check your email shortly."});
+  const thanks_ret = json({"newsletterInfo": "Thanks!"});
 
   email = email.toLowerCase();
   let list = await prisma.mailingList.findUnique({
@@ -52,10 +52,23 @@ export async function newsletterSignup(email: string) {
     let now = new Date();
     if (!list.active) {
       if (!list.contactedAt || (now - list.contactedAt) > 30 * 60 * 1000) {
-        contactNewSignup(email)
+        //contactNewSignup(email)
       }
     }
-    return ret;
+    return thanks_ret;
+  }
+
+  // honestly I should add a captcha or something, but future problem
+  const time_out = new Date(Date.now() - 60 * 1000);
+  let prev = await prisma.mailingList.count({
+    where: {
+      createdAt: {
+        gte: time_out,
+      },
+    },
+  });
+  if (prev > 3) {
+    return json({"newsletterInfo": "Sorry, try again later."});
   }
 
   list = await prisma.mailingList.create({
@@ -63,8 +76,8 @@ export async function newsletterSignup(email: string) {
       email: email
     }
   })
-  contactNewSignup(email);
-  return ret;
+  //contactNewSignup(email);
+  return thanks_ret;
 }
 
 // This one can be used directly if there are other forms on the page

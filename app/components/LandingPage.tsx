@@ -26,7 +26,7 @@ function YoutubeVideoHighlights() {
     <div className="flex justify-center">
       <div className="max-w-3xl w-full pb-4">
         <h1 className="text-2xl font-bold">Check out these highlights from a past event</h1>
-        <div style={{"position": "relative", "width":"100%", "height":"0", "padding-bottom":"56.25%"}}>
+        <div style={{"position": "relative", "width":"100%", "height":"0", "paddingBottom":"56.25%"}}>
           <iframe src="https://www.youtube.com/embed/3WRWz7XG3Os?si=eZmOm2_juYXavVcq" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{"position":"absolute", "top":"0", "left":"0", "width":"100%", "height":"100%"}}></iframe>
         </div>
       </div>
