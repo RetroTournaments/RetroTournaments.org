@@ -15,7 +15,7 @@ export function smb_time_format(millis: number): string {
 
     let str = minutes + ":" + seconds + "." + millis;
     if (hours) {
-        str = hours + ":";
+        str = hours + ":" + str;
     }
 
     return str;

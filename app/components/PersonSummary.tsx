@@ -7,9 +7,9 @@ function PersonSummary({ person }) {
     const rowData = extractPersonSummary(person);
 
     const colDefs = [
-        { headerName: 'Joined', field: 'member_since', width: 190 },
-        { headerName: 'Tournaments', field: 'num_tournaments', width: 170 },
-        { headerName: 'Races', field: 'num_races', width: 130 },
+        { headerName: 'Date Joined', field: 'member_since', width: 140 },
+        { headerName: 'Tournaments Completed', field: 'num_tournaments', width: 210 },
+        { headerName: 'Races Finished', field: 'num_races', width: 130 },
         { headerName: 'Events', field: 'num_events', width: 130 },
         { headerName: 'Podiums', field: 'podiums', width: 130 },
     ]

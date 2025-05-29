@@ -2,6 +2,7 @@ import PersonHeading from '../components/PersonHeading.tsx';
 import PersonSummary from '../components/PersonSummary.tsx';
 import PersonRandom from '../components/PersonRandom.tsx';
 import PersonRecords from '../components/PersonRecords.tsx';
+import PersonTournaments from '../components/PersonTournaments.tsx';
 import { useLoaderData } from "@remix-run/react";
 import { getPerson, randomPersonCRGAId } from '../util/person.tsx';
 import { getEventLeaderboard } from '../util/event.tsx';
@@ -27,6 +28,7 @@ export default function Persons() {
             <article className="prose p-4">
                 <PersonHeading person={person} />
                 <PersonSummary person={person} />
+                <PersonTournaments person={person} />
                 <PersonRecords person={person} />
                 <PersonRandom />
             </article>

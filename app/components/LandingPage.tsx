@@ -35,13 +35,13 @@ function YoutubeVideoHighlights() {
   );
 }
 
-function CountdownToSOCAL() {
+function CountdownToNext() {
   useEffect(() => {
       const interval = setInterval(() => {
         let now = new Date();
-        let socal_date = new Date("2025-06-06T13:00:00");
+        let next_date = new Date("2025-06-06T13:00:00");
 
-        let seconds = Math.floor((socal_date - now) / 1000);
+        let seconds = Math.floor((next_date - now) / 1000);
         let minutes = Math.floor(seconds / 60);
         let hours = Math.floor(minutes / 60);
         let days = Math.floor (hours / 24);
@@ -75,7 +75,7 @@ function CountdownToSOCAL() {
       <div className="max-w-2xl w-full">
         <div className="divider"></div>
         <div className="flex justify-center">
-          <h1 className="text-5xl font-bold">Countdown to <Link to="/events" className="link link-hover text-accent">SOCAL 2025!!</Link></h1>
+          <h1 className="text-3xl font-bold">Countdown to <Link to="/events" className="link link-hover text-accent">WarpZone Invitational 2025!!</Link></h1>
         </div>
 
         <div className="flex gap-5 justify-center pt-4">
@@ -115,7 +115,7 @@ function LandingPage() {
   return (
     <>
       <WelcomeTextHero/ >
-      <CountdownToSOCAL/ >
+      <CountdownToNext/ >
       <YoutubeVideoHighlights/ >
     </>
   );

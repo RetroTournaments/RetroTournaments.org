@@ -5,7 +5,6 @@ import { getPersonRecords } from '../util/person.tsx';
 
 function PersonRecords({ person }) {
     const rowData = getPersonRecords(person);
-    const height = 50 + 50 * rowData.length;
 
     const colDefs = [
         { headerName: 'Event', field: 'event', width: 250 },
@@ -16,10 +15,11 @@ function PersonRecords({ person }) {
         <>
             <h2> Personal Records </h2>
 
-            <div className="ag-theme-quartz-auto-dark" style={{ height: height,  width:800}} >
+            <div className="ag-theme-quartz-auto-dark" style={{ width:800}} >
             <AgGridReact
                 rowData={rowData}
                 columnDefs={colDefs}
+                domLayout='autoHeight'
             />
             </div>
         </>

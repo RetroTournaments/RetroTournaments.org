@@ -1,4 +1,6 @@
 /*
+THIS IS NOT FINISHED
+
 Script to update person rankings, which only change after new tournament
 results are added. It will be necessary to automate calling these scripts when
 the time comes.
@@ -25,8 +27,8 @@ function process_round(rnd, rankings) {
         return a.resultCode - b.resultCode;
     });
 
-    did_not_finishers = []
-    grouped_finishers = []
+    let did_not_finishers = []
+    let grouped_finishers = []
 
     let last_result = undefined;
     for (let result of rnd.results) {

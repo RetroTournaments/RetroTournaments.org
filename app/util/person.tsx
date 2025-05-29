@@ -108,6 +108,29 @@ export const randomPersonCRGAId = async() => {
             crgaid: true
             }
         })
+    if (persons.length == 0) {
+        return ""
+    }
     return persons[Math.floor(Math.random() * persons.length)].crgaid;
 }
 
+
+export function extractPersonTournaments(person) {
+    let event_short_name = {}
+    for (const pb of person.personalBests) {
+        event_short_name[pb.event.id] = pb.event.shortName;
+    }
+    const rowData = [];
+    for (const stnd of person.standings) {
+        const date = moment(stnd.tournament.date).format('MMMM Do, YYYY')
+        rowData.push({
+            "isodate": stnd.tournament.date,
+            "date": date,
+            "tournament": stnd.tournament.name,
+            "event": event_short_name[stnd.tournament.eventId],
+            "standing": ordinal(stnd.standing),
+            "event_order": stnd.tournament.event_order
+        })
+    }
+    return rowData;
+}

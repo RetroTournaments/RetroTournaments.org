@@ -16,9 +16,7 @@ function aliascomparator(v1, v2) {
 }
 
 function PersonGrid({ rowData }) {
-    // Column Definitions: Defines the columns to be displayed.
     const colDefs = [
-    
       { field: "alias", width: 250, cellRenderer: cellrender, comparator: aliascomparator},
       { headerName: 'ID', field: "crgaid", width: 140, cellRenderer: cellrender},
       { headerName: 'Tournaments', valueGetter: "data._count.standings", width: 140},
