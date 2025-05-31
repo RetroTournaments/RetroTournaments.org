@@ -9,3 +9,4 @@ npx prisma generate
 npx tsx scripts/seed_initial_results.ts
 npx tsx scripts/update_personal_bests.ts
 #npx tsx scripts/update_person_rankings.ts
+npx tsx scripts/seed_socal.ts
