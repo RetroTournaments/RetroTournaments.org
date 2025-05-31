@@ -2,6 +2,8 @@ import { getTournamentsTable } from '../util/tournament.tsx';
 import { useLoaderData } from 'react-router-dom';
 import { Link } from '@remix-run/react';
 import TournamentGrid from '../components/TournamentGrid.tsx';
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
 
 export async function loader({ request }) {
     return await getTournamentsTable();

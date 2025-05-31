@@ -20,3 +20,15 @@ export function smb_time_format(millis: number): string {
 
     return str;
 }
+
+export function smb_result_code_str(result_code: number): string {
+    if (result_code == 0) {
+        return "FIN"
+    } else if (result_code == 1) {
+        return "WLK"
+    } else if (result_code == 2) {
+        return "DNF"
+    } else {
+        return "DNS"
+    }
+}

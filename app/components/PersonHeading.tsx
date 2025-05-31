@@ -2,6 +2,7 @@ import TopContributorBadge from '../components/TopContributorBadge.tsx';
 function PersonHeading({ person }) {
   return (
   <>
+    <article className="prose p-4">
         { person.topContributor? (
           <TopContributorBadge />
         ) :
@@ -13,6 +14,7 @@ function PersonHeading({ person }) {
         <span className="font-mono text-2xl"> &nbsp; {person.crgaid} </span>
         </span>
       </h1>
+    </article>
   </>
   );
 }

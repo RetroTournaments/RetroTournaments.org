@@ -17,6 +17,44 @@ export const getTournamentsTable = async () => {
     })
 }
 
+export const getTournament = async(shortname : string) => {
+    return prisma.tournament.findUnique({
+        select: {
+            name: true,
+            event: true,
+            shortName: true,
+            date: true,
+            standings: {
+                select: {
+                    standing: true,
+                    person: {
+                        select: {
+                            alias: true,
+                            crgaid: true
+                        }
+                    }
+                }
+            },
+            results: {
+                select: {
+                    roundNumber: true,
+                    person: {
+                        select: {
+                            alias: true,
+                            crgaid: true
+                        }
+                    },
+                    elapsedMilliseconds: true,
+                    resultCode: true,
+                    accruedPoints: true,
+                }
+            },
+        },
+        where: {
+            shortName: shortname
+        },
+    })
+}
 
 export function tournamentComparator(valueA, valueB, nodeA, nodeB, isInverted) {
     const dateA = new Date(nodeA.data.isodate).getTime();

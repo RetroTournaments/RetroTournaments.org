@@ -16,6 +16,13 @@ function TournamentGrid({ rowData }) {
         },
         { headerName: 'Tournament', field: "name", flex: 3,
           suppressMovable: true,
+          cellRenderer: (p) => {
+            return (
+            <>
+                <Link to={p.data.shortName}> <span className="underline"> {p.value} </span> </Link>
+            </>
+            )
+          },
         },
         { headerName: 'Event', field: "event", flex: 1,
           suppressMovable: true,

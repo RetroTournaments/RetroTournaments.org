@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import { prisma } from './prisma'
 import moment from 'moment'
 import { smb_time_format } from './smb'
@@ -133,4 +134,12 @@ export function extractPersonTournaments(person) {
         })
     }
     return rowData;
+}
+
+export function personLink(crgaid: string, alias: string) {
+    return (
+        <>
+            <Link to={`/persons/${crgaid}`}> <span className="underline"> {alias} </span> </Link>
+        </>
+    )
 }
