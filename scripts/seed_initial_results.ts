@@ -36,6 +36,10 @@ function get_table_values(query) {
     return { table, values };
 }
 
+function to_shortname(name: string) {
+    return name.replace(/[\s\-%]/g, '');
+}
+
 async function main() {
     let person_id = {}
     let event_id = {}
@@ -71,6 +75,7 @@ async function main() {
             const tourney = await prisma.tournament.create({
                 data: {
                     name: result.values[3],
+                    shortName: to_shortname(result.values[3]),
                     date: result.values[4] + "T08:00:00Z",
                     event_order: result.values[5],
                     event: {

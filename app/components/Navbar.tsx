@@ -34,7 +34,7 @@ function Navbar() {
               Results
               <ul className="p-2">
                 <li><Link to="/persons/">Persons</Link></li>
-                <li><a>Tournaments</a></li>
+                <li><Link to="/tournaments/">Tournaments</Link></li>
                 <li><a>Events</a></li>
               </ul>
             </li>
@@ -69,7 +69,7 @@ function Navbar() {
             <div tabIndex={0} role="button" className="btn m-1 no-animation">Results</div>
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
               <li><Link to="/persons/">Persons</Link></li>
-              <li><a>Tournaments</a></li>
+              <li><Link to="/tournaments/">Tournaments</Link></li>
               <li><a>Events</a></li>
             </ul>
           </div>

@@ -23,15 +23,15 @@ export default function Persons() {
   const person = useLoaderData();
   return (
     <>
-        <div className="flex flex-row items-center justify-center mx-auto p-4 w-full">
-          <div className="w-[800px]">
+        <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
+          <div className="w-full">
             <article className="prose p-4">
                 <PersonHeading person={person} />
-                <PersonSummary person={person} />
-                <PersonTournaments person={person} />
-                <PersonRecords person={person} />
-                <PersonRandom />
             </article>
+            <PersonSummary person={person} />
+            <PersonTournaments person={person} />
+            <PersonRecords person={person} />
+            <PersonRandom />
           </div>
         </div>
     </>

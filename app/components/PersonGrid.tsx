@@ -17,15 +17,15 @@ function aliascomparator(v1, v2) {
 
 function PersonGrid({ rowData }) {
     const colDefs = [
-      { field: "alias", width: 250, cellRenderer: cellrender, comparator: aliascomparator},
-      { headerName: 'ID', field: "crgaid", width: 140, cellRenderer: cellrender},
-      { headerName: 'Tournaments', valueGetter: "data._count.standings", width: 140},
-      { headerName: 'Races', valueGetter: "data._count.results", width: 140},
+      { field: "alias", flex: 3, cellRenderer: cellrender, comparator: aliascomparator, filter: "agTextColumnFilter", floatingFilter: true},
+      { headerName: 'ID', field: "crgaid", flex: 1.2, cellRenderer: cellrender, floatingFilter: true, filter: "agTextColumnFilter"},
+      { headerName: 'Tournaments', valueGetter: "data._count.standings", flex: 1},
+      { headerName: 'Races', valueGetter: "data._count.results", flex: 1},
     ];
 
     return (
         <>
-            <div className="ag-theme-quartz-auto-dark" style={{ height: 550,  width:800}} >
+            <div className="ag-theme-quartz-auto-dark" style={{ height: 700,  width:"100%"}} >
                 <AgGridReact
                     rowData={rowData}
                     columnDefs={colDefs}

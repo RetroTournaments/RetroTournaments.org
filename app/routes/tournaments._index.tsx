@@ -1,11 +1,10 @@
-import { getPersonsTable } from '../util/person.tsx';
+import { getTournamentsTable } from '../util/tournament.tsx';
 import { useLoaderData } from 'react-router-dom';
 import { Link } from '@remix-run/react';
-import PersonGrid from '../components/PersonGrid.tsx';
-import PersonRandom from '../components/PersonRandom.tsx';
+import TournamentGrid from '../components/TournamentGrid.tsx';
 
 export async function loader({ request }) {
-    return await getPersonsTable();
+    return await getTournamentsTable();
 }
 
 export default function PersonsIndex() {
@@ -16,15 +15,13 @@ export default function PersonsIndex() {
         <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
           <div className="w-full">
             <article className="prose p-4">
-              <h1> Persons </h1>
+              <h1> Tournaments </h1>
             </article>
           </div>
 
-          <PersonGrid rowData={rowData} />
-          <article className="prose p-4">
-            <PersonRandom />
-          </article>
+          <TournamentGrid rowData={rowData} />
         </div>
       </>
     )
 }
+

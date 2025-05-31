@@ -125,7 +125,7 @@ export function extractPersonTournaments(person) {
         const date = moment(stnd.tournament.date).format('MMMM Do, YYYY')
         rowData.push({
             "isodate": stnd.tournament.date,
-            "date": date,
+            "date_fmt": date,
             "tournament": stnd.tournament.name,
             "event": event_short_name[stnd.tournament.eventId],
             "standing": ordinal(stnd.standing),

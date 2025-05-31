@@ -59,6 +59,7 @@ model Tournament {
   event   Event @relation(fields: [eventId], references: [id])
 
   name String
+  shortName String @unique
   date DateTime
 
   event_order Int

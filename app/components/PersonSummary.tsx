@@ -7,16 +7,16 @@ function PersonSummary({ person }) {
     const rowData = extractPersonSummary(person);
 
     const colDefs = [
-        { headerName: 'Date Joined', field: 'member_since', width: 140 },
-        { headerName: 'Tournaments Completed', field: 'num_tournaments', width: 210 },
-        { headerName: 'Races Finished', field: 'num_races', width: 130 },
-        { headerName: 'Events', field: 'num_events', width: 130 },
-        { headerName: 'Podiums', field: 'podiums', width: 130 },
+        { headerName: 'Date Joined', field: 'member_since', flex: 1},
+        { headerName: 'Tournaments Completed', field: 'num_tournaments', flex: 2 },
+        { headerName: 'Races Finished', field: 'num_races', flex: 1 },
+        { headerName: 'Events', field: 'num_events', flex: 1 },
+        { headerName: 'Podiums', field: 'podiums', flex: 1 },
     ]
 
     return (
         <>
-            <div className="ag-theme-quartz-auto-dark" style={{ height: 100,  width:800}} >
+            <div className="ag-theme-quartz-auto-dark" style={{ height: 100, width:"100%"}} >
                 <AgGridReact
                     rowData={rowData}
                     columnDefs={colDefs}
