@@ -75,7 +75,7 @@ function CountdownToNext() {
       <div className="max-w-2xl w-full">
         <div className="divider"></div>
         <div className="flex justify-center">
-          <h1 className="text-3xl font-bold">Countdown to <Link to="/events" className="link link-hover text-accent">WarpZone Invitational 2025!!</Link></h1>
+          <h1 className="text-3xl font-bold">Countdown to <Link to="/tournaments/WarpzoneInvitational2025AnyQualifiers" className="link link-hover text-accent">WarpZone Invitational 2025!!</Link></h1>
         </div>
 
         <div className="flex gap-5 justify-center pt-4">

@@ -24,6 +24,7 @@ async function main() {
     //})
     const results = await prisma.tournamentRoundResult.findMany({
         select: {
+            id: true,
             tournamentId: true,
             eventId: true,
             personId: true,
@@ -95,8 +96,12 @@ async function main() {
                         id: rec.tournamentId
                     }
                 },
+                result: {
+                    connect: {
+                        id: rec.id
+                    }
+                },
                 standing: standing,
-                elapsedMilliseconds: rec.elapsedMilliseconds,
             }
         })
 

@@ -15,7 +15,7 @@ function Footer({ newsletterInfo }) {
           <h6 className="footer-title">Results</h6>
           <Link to="/persons/">Persons</Link>
           <Link to="/tournaments/">Tournaments</Link>
-          <a className="link link-hover">Events</a>
+          <Link to="/events/">Events</Link>
         </nav>
         <nav>
           <h6 className="footer-title">Community</h6>

@@ -43,6 +43,7 @@ model Event {
 
   name      String
   shortName String
+  uriName   String @unique
 
   createdAt DateTime @default(now())
 
@@ -58,9 +59,9 @@ model Tournament {
   eventId Int
   event   Event @relation(fields: [eventId], references: [id])
 
-  name String
-  shortName String @unique
-  date DateTime
+  name      String
+  shortName String   @unique
+  date      DateTime
 
   event_order Int
 
@@ -104,6 +105,7 @@ model TournamentRoundResult {
 
   elapsedMilliseconds Int
   accruedPoints       Int
+  PersonalBest        PersonalBest[]
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -119,8 +121,9 @@ model PersonalBest {
   tournamentId Int
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
 
-  standing            Int
-  elapsedMilliseconds Int
+  standing                Int
+  tournamentRoundResultId Int
+  result                  TournamentRoundResult @relation(fields: [tournamentRoundResultId], references: [id])
 }
 
 model SimpleELO {

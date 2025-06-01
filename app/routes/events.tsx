@@ -9,7 +9,7 @@ export async function action({ request }) {
   return newsletterOnlyAction(request);
 }
 
-export default function Tournaments() {
+export default function Events() {
   const actionData = useActionData();
   return (
     <>
@@ -19,4 +19,5 @@ export default function Tournaments() {
     </>
   )
 }
+
 

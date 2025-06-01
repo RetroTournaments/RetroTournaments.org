@@ -67,6 +67,7 @@ async function main() {
                 data: {
                     name: result.values[2],
                     shortName: result.values[3],
+                    uriName: to_shortname(result.values[3]),
                 }
             })
             event_id[result.values[0]] = event.id;

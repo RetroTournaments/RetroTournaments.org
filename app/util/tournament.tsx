@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import { prisma } from './prisma'
 
 export const getTournamentsTable = async () => {
@@ -57,13 +58,13 @@ export const getTournament = async(shortname : string) => {
 }
 
 export function tournamentComparator(valueA, valueB, nodeA, nodeB, isInverted) {
-    const dateA = new Date(nodeA.data.isodate).getTime();
-    const dateB = new Date(nodeB.data.isodate).getTime();
+    const dateA = new Date(nodeA.data.date).getTime();
+    const dateB = new Date(nodeB.data.date).getTime();
     if (dateA == dateB) {
       if (nodeA.data.event_order < nodeB.data.event_order) {
-          return -1;
-      } else {
           return 1;
+      } else {
+          return -1;
       }
     }
     if (dateA < dateB) {
@@ -71,4 +72,12 @@ export function tournamentComparator(valueA, valueB, nodeA, nodeB, isInverted) {
     } else {
         return 1;
     }
+}
+
+export function tournamentLink(name: string, shortname: string) {
+    return (
+        <>
+            <Link to={`/tournaments/${shortname}`}> <span className="underline"> {name} </span> </Link>
+        </>
+    )
 }
