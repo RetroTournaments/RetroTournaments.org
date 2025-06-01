@@ -80,4 +80,7 @@ npm install stripe
 
 ```
 
+Now I need to change the database!? Going to try:
+https://www.netlify.com/integrations/prisma
+
 
