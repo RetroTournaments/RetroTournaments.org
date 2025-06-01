@@ -58,3 +58,10 @@ Initial decision because something was needed and this is what work uses!
 
 ## AGGrid
 Because headless stuff required me to DO STUFF that I don't know how to do.
+
+## stripe
+Because duh
+
+## Deploying
+Going to try netlify because well it seems like it might integrate nicely with github?
+
