@@ -8,7 +8,6 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 
 export async function action({ request }) {
-  console.log(request)
   return newsletterOnlyAction(request);
 }
 
@@ -18,7 +17,7 @@ export async function loader({ request }) {
 
 export default function PersonsIndex() {
     const rowData = useLoaderData();
-  const actionData = useActionData();
+    const actionData = useActionData();
 
     return (
       <>

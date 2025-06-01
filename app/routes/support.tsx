@@ -5,6 +5,7 @@ import { redirect } from "@remix-run/node";
 import { isNewsletterSignup } from '../util/newsletter'
 import { useActionData } from "@remix-run/react";
 import supportGif from "../img/2-support.gif";
+import stripe from "../util/stripe"
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -12,6 +13,17 @@ export async function action({ request }) {
     return await isNewsletterSignup(formData);
   }
 
+  const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+            price: "price_1RV5RPE6IdosAkGC9ZeftkAL",
+            quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: "https://www.retrotournaments.org/support"
+  });
+  return redirect(session.url)
 }
 
 export default function Support() {
