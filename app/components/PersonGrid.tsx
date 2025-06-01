@@ -1,7 +1,6 @@
 import { AgGridReact } from 'ag-grid-react';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Link } from '@remix-run/react';
+import { getTheme } from '../util/aggridtheme';
 
 function cellrender(p) {
     return (
@@ -27,6 +26,7 @@ function PersonGrid({ rowData }) {
         <>
             <div className="ag-theme-quartz-auto-dark" style={{ height: 700,  width:"100%"}} >
                 <AgGridReact
+                    theme={getTheme()}
                     rowData={rowData}
                     columnDefs={colDefs}
                     pagination={true}

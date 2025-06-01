@@ -2,8 +2,6 @@ import Footer from '../components/Footer'
 import { useLoaderData, useActionData } from "@remix-run/react";
 import { redirect } from "@remix-run/node";
 import { getEvent } from '../util/event.tsx';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 import EventTournaments from '../components/EventTournaments.tsx';
 import EventPersonalBests from '../components/EventPersonalBests.tsx';
 

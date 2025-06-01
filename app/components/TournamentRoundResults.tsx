@@ -1,8 +1,7 @@
 import { AgGridReact } from 'ag-grid-react';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 import { personLink } from '../util/person'
 import { smb_result_code_str, smb_time_format } from '../util/smb'
+import { getTheme } from '../util/aggridtheme';
 
 function TournamentRoundResults({ tournament }) {
     const rowData = tournament.results;
@@ -55,6 +54,7 @@ function TournamentRoundResults({ tournament }) {
         </article>
         <div className="ag-theme-quartz-auto-dark" style={{ width:"100%"}} >
             <AgGridReact
+                theme={getTheme()}
                 rowData={tournament.results}
                 columnDefs={colDefs}
                 domLayout='autoHeight'

@@ -1,10 +1,10 @@
 import { AgGridReact } from 'ag-grid-react';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Link } from '@remix-run/react';
 import moment from 'moment'
 import { tournamentComparator } from '../util/tournament.tsx';
+import { eventLink } from '../util/event.tsx';
 import { dateCellRenderer } from '../util/datefmt.tsx';
+import { getTheme } from '../util/aggridtheme';
 
 function TournamentGrid({ rowData }) {
     const colDefs = [
@@ -27,11 +27,7 @@ function TournamentGrid({ rowData }) {
         { headerName: 'Event', field: "event", flex: 1,
           suppressMovable: true,
           cellRenderer: (p) => {
-              return (
-              <>
-                  <span> {p.data.event.shortName} </span>
-              </>
-              )
+              return eventLink(p.data.event.shortName, p.data.event.uriName);
           },
           comparator: (va, vb, na, nb, invert) => {
               if (na.data.event.shortName < nb.data.event.shortName) {
@@ -49,6 +45,7 @@ function TournamentGrid({ rowData }) {
         <>
             <div className="ag-theme-quartz-auto-dark" style={{ height: 700,  width:"100%"}} >
                 <AgGridReact
+                    theme={getTheme()}
                     rowData={rowData}
                     columnDefs={colDefs}
                     pagination={true}

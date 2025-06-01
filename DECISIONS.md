@@ -64,4 +64,20 @@ Because duh
 
 ## Deploying
 Going to try netlify because well it seems like it might integrate nicely with github?
+Unfortunately 
+    https://docs.netlify.com/frameworks/remix/#create-a-new-remix-app-to-deploy-to-netlify
+So I had to redo much of the setup.
+
+```
+npx create-remix@latest --template netlify/remix-template
+# copying everything relevant over..
+npm install prisma
+npm install ag-grid-community ag-grid-react
+npm install tailwindcss @tailwindcss/vite
+npm i -D daisyui@latest
+npm install email-validator lz-string moment
+npm install stripe
+
+```
+
 

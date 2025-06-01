@@ -1,8 +1,7 @@
 import { AgGridReact } from 'ag-grid-react';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 import { getPersonRecords } from '../util/person.tsx';
 import { eventLink } from '../util/event.tsx';
+import { getTheme } from '../util/aggridtheme';
 
 function PersonRecords({ person }) {
     const rowData = getPersonRecords(person);
@@ -23,6 +22,7 @@ function PersonRecords({ person }) {
 
             <div className="ag-theme-quartz-auto-dark" style={{ width:"100%"}} >
             <AgGridReact
+                theme={getTheme()}
                 rowData={rowData}
                 columnDefs={colDefs}
                 domLayout='autoHeight'

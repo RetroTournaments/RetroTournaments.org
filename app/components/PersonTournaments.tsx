@@ -1,9 +1,8 @@
 import { AgGridReact } from 'ag-grid-react';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 import { extractPersonTournaments } from '../util/person.tsx';
 import { tournamentComparator, tournamentLink } from '../util/tournament.tsx';
 import { eventLink } from '../util/event.tsx';
+import { getTheme } from '../util/aggridtheme';
 
 function PersonTournaments({ person }) {
     const rowData = extractPersonTournaments(person);
@@ -32,6 +31,7 @@ function PersonTournaments({ person }) {
             </article>
             <div className="ag-theme-quartz-auto-dark" style={{ width:"100%" }} >
                 <AgGridReact
+                    theme={getTheme()}
                     rowData={rowData}
                     columnDefs={colDefs}
                     domLayout='autoHeight'

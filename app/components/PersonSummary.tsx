@@ -1,7 +1,6 @@
 import { AgGridReact } from 'ag-grid-react';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
-import { extractPersonSummary } from '../util/person.tsx';
+import { extractPersonSummary } from '../util/person';
+import { getTheme } from '../util/aggridtheme';
 
 function PersonSummary({ person }) {
     const rowData = extractPersonSummary(person);
@@ -16,8 +15,9 @@ function PersonSummary({ person }) {
 
     return (
         <>
-            <div className="ag-theme-quartz-auto-dark" style={{ height: 100, width:"100%"}} >
+            <div style={{ height: 100, width:"100%"}} >
                 <AgGridReact
+                    theme={getTheme()}
                     rowData={rowData}
                     columnDefs={colDefs}
                 />

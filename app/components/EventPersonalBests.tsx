@@ -1,11 +1,10 @@
 import { Link } from '@remix-run/react';
 import { AgGridReact } from 'ag-grid-react';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 import { personLink } from '../util/person';
 import { ordinal } from '../util/ordinal'
 import { dateCellRenderer } from '../util/datefmt'
 import { smb_time_format } from '../util/smb'
+import { getTheme } from '../util/aggridtheme';
 
 function EventPersonalBests({ event }) {
     const colDefs = [
@@ -30,29 +29,6 @@ function EventPersonalBests({ event }) {
         cellRenderer: (p) => {
             return smb_time_format(p.value)
         }},
-        //{ headerName: 'Date', flex: 0.8, sortable: true, 
-        //  sort: 'desc', sortingOrder: ["desc", "asc"],
-        //  cellRenderer: (p) => {
-        //    return dateFormatted(p.data.date)
-        //  },
-        //  comparator: tournamentComparator},
-        //{ headerName: 'Tournament', field: 'name', flex: 2,
-        //    cellRenderer: (p) => {
-        //    return tournamentLink(p.value, p.data.shortName);
-        //    },
-        //},
-        //{ headerName: 'Races', valueGetter: 'data._count.results', flex: 0.5},
-        //{ headerName: 'Persons', valueGetter: 'data._count.standings', flex: 0.5},
-        //{ headerName: 'Champion', flex: 0.5,
-        //    cellRenderer: (p) => {
-        //        if (p.data.standings.length == 1) {
-        //            const v = p.data.standings[0].person
-        //            return personLink(v.crgaid, v.alias);
-        //        } else {
-        //            return ""
-        //        }
-        //    }
-        //},
     ]
 
     return (
@@ -62,6 +38,7 @@ function EventPersonalBests({ event }) {
             </article>
             <div className="ag-theme-quartz-auto-dark" style={{ width:"100%" }} >
                 <AgGridReact
+                    theme={getTheme()}
                     rowData={event.personalBests}
                     columnDefs={colDefs}
                     domLayout='autoHeight'

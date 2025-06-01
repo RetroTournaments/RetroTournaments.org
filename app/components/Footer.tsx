@@ -5,7 +5,7 @@ function Footer({ newsletterInfo }) {
   return (
   <>
     <div className="flex bg-base-200 justify-center">
-      <footer className="footer bg-base-200 text-base-content p-10 max-w-4xl justify-between">
+      <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 max-w-4xl justify-between">
         <nav>
           <h6 className="footer-title">Information</h6>
           <Link to="/about" className="link link-hover">About</Link>

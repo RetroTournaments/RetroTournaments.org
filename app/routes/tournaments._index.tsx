@@ -4,8 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 import { Link, useActionData } from '@remix-run/react';
 import { newsletterOnlyAction } from '../util/newsletter'
 import TournamentGrid from '../components/TournamentGrid.tsx';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 
 export async function action({ request }) {
   return newsletterOnlyAction(request);

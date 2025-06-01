@@ -6,8 +6,6 @@ import { getTournament } from '../util/tournament.tsx';
 import TournamentSummary from '../components/TournamentSummary.tsx';
 import TournamentFinalStandings from '../components/TournamentFinalStandings.tsx';
 import TournamentRoundResults from '../components/TournamentRoundResults.tsx';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
 
 export async function action({ request }) {
   console.log(request)
