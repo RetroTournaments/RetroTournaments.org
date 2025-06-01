@@ -1,8 +1,8 @@
-Need support page
-Deploy
-
-Need to have a linter / code clean up
+Add ESLint properly somehow?
 Fix types? 
+
 Images / more information on tournament pages?
-Better handling of qualifying etc
+Better handling of qualifying etc?
+Live Results?
+
 
