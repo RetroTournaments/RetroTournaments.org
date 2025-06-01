@@ -21,7 +21,7 @@ export async function action({ request }) {
         },
       ],
       mode: 'payment',
-      success_url: "https://www.retrotournaments.org/support"
+      success_url: process.env.BASE_URL + "/support"
   });
   return redirect(session.url)
 }
