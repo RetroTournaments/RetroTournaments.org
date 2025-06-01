@@ -9,7 +9,6 @@ function EventGrid({ rowData }) {
     cellRenderer: (p) => {
         return (<>
             <Link to={p.data.uriName}> <span className="underline"> {p.value} </span> </Link>
-            
         </>)
     }
 

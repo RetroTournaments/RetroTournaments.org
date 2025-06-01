@@ -1,4 +1,8 @@
-Working on results/
-- persons
-- tournaments
-- events
+Need support page
+Deploy
+
+Need to have a linter / code clean up
+Fix types? 
+Images / more information on tournament pages?
+Better handling of qualifying etc
+

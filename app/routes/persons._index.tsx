@@ -1,14 +1,21 @@
+import Footer from '../components/Footer'
 import { getPersonsTable } from '../util/person.tsx';
 import { useLoaderData } from 'react-router-dom';
-import { Link } from '@remix-run/react';
+import { Link, useActionData } from '@remix-run/react';
 import PersonGrid from '../components/PersonGrid.tsx';
 import PersonRandom from '../components/PersonRandom.tsx';
+import { newsletterOnlyAction } from '../util/newsletter'
+
+export async function action({ request }) {
+  return newsletterOnlyAction(request);
+}
 
 export async function loader({ request }) {
     return await getPersonsTable();
 }
 
 export default function PersonsIndex() {
+    const actionData = useActionData();
     const rowData = useLoaderData();
 
     return (
@@ -25,6 +32,7 @@ export default function PersonsIndex() {
             <PersonRandom />
           </article>
         </div>
+        <Footer newsletterInfo={actionData?.newsletterInfo}/>
       </>
     )
 }

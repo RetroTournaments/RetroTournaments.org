@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import { prisma } from './prisma'
 
 export const getEventLeaderboard = async() => {
@@ -30,6 +31,7 @@ export const getEvent = async(uriname : string) => {
     return prisma.event.findUnique({
         select: {
             name: true,
+            uriName: true,
             tournaments: {
                 select: {
                     name: true,
@@ -86,4 +88,12 @@ export const getEvent = async(uriname : string) => {
             uriName: uriname
         },
     })
+}
+
+export function eventLink(name: string, uriname: string) {
+    return (
+        <>
+            <Link to={`/events/${uriname}`}> <span className="underline"> {name} </span> </Link>
+        </>
+    )
 }

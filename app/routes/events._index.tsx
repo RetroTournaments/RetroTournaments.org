@@ -1,15 +1,22 @@
+import Footer from '../components/Footer'
 import { getEventsTable } from '../util/event.tsx';
 import { useLoaderData } from 'react-router-dom';
-import { Link } from '@remix-run/react';
+import { Link, useActionData } from '@remix-run/react';
+import { newsletterOnlyAction } from '../util/newsletter'
 import EventGrid from '../components/EventGrid.tsx';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
+
+export async function action({ request }) {
+  return newsletterOnlyAction(request);
+}
 
 export async function loader({ request }) {
     return await getEventsTable();
 }
 
 export default function PersonsIndex() {
+    const actionData = useActionData();
     const rowData = useLoaderData();
 
     return (
@@ -23,6 +30,7 @@ export default function PersonsIndex() {
 
           <EventGrid rowData={rowData} />
         </div>
+      <Footer newsletterInfo={actionData?.newsletterInfo}/>
       </>
     )
 }

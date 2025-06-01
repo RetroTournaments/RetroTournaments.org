@@ -1,9 +1,16 @@
+import Footer from '../components/Footer'
 import { getTournamentsTable } from '../util/tournament.tsx';
 import { useLoaderData } from 'react-router-dom';
-import { Link } from '@remix-run/react';
+import { Link, useActionData } from '@remix-run/react';
+import { newsletterOnlyAction } from '../util/newsletter'
 import TournamentGrid from '../components/TournamentGrid.tsx';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
+
+export async function action({ request }) {
+  console.log(request)
+  return newsletterOnlyAction(request);
+}
 
 export async function loader({ request }) {
     return await getTournamentsTable();
@@ -11,6 +18,7 @@ export async function loader({ request }) {
 
 export default function PersonsIndex() {
     const rowData = useLoaderData();
+  const actionData = useActionData();
 
     return (
       <>
@@ -23,6 +31,7 @@ export default function PersonsIndex() {
 
           <TournamentGrid rowData={rowData} />
         </div>
+      <Footer newsletterInfo={actionData?.newsletterInfo}/>
       </>
     )
 }

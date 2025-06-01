@@ -38,14 +38,27 @@ export const getPerson = async(crgaid) => {
             standings: {
                 select: {
                     standing: true,
-                    tournament: true,
+                    tournament: {
+                        select: {
+                            eventId: true,
+                            event: true,
+                            name: true,
+                            shortName: true,
+                            date: true,
+                            event_order: true,
+                        }
+                    }
                 }
             },
             personalBests: {
                 select: {
                     event: true,
                     standing: true,
-                    elapsedMilliseconds: true,
+                    result: {
+                        select: {
+                            elapsedMilliseconds: true,
+                        }
+                    }
                 }
             },
             results: true,
@@ -95,8 +108,9 @@ export function getPersonRecords(person) {
     for (const v of person.personalBests) {
         rowData.push({
             "event": v.event.name,
+            "uriName": v.event.uriName,
             "personal_best": 
-                smb_time_format(v.elapsedMilliseconds) + " [" + ordinal(v.standing) + "]",
+                smb_time_format(v.result.elapsedMilliseconds) + " [" + ordinal(v.standing) + "]",
         })
     }
     return rowData;
@@ -128,7 +142,9 @@ export function extractPersonTournaments(person) {
             "date": stnd.tournament.date,
             "date_fmt": date,
             "tournament": stnd.tournament.name,
+            "tournament_shortname": stnd.tournament.shortName,
             "event": event_short_name[stnd.tournament.eventId],
+            "uriName": stnd.tournament.event.uriName,
             "standing": ordinal(stnd.standing),
             "event_order": stnd.tournament.event_order
         })

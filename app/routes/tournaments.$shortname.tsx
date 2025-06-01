@@ -1,4 +1,6 @@
-import { useLoaderData } from "@remix-run/react";
+import Footer from '../components/Footer'
+import { useLoaderData, useActionData } from "@remix-run/react";
+import { newsletterOnlyAction } from '../util/newsletter'
 import { redirect } from "@remix-run/node";
 import { getTournament } from '../util/tournament.tsx';
 import TournamentSummary from '../components/TournamentSummary.tsx';
@@ -6,6 +8,11 @@ import TournamentFinalStandings from '../components/TournamentFinalStandings.tsx
 import TournamentRoundResults from '../components/TournamentRoundResults.tsx';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
+
+export async function action({ request }) {
+  console.log(request)
+  return newsletterOnlyAction(request);
+}
 
 export const loader = async ({ params }) => {
     const res = await getTournament(params.shortname)
@@ -17,6 +24,7 @@ export const loader = async ({ params }) => {
 
 export default function Tournaments() {
   const tournament = useLoaderData();
+  const actionData = useActionData();
   return (
     <>
         <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
@@ -26,6 +34,7 @@ export default function Tournaments() {
               <TournamentRoundResults tournament={tournament} />
           </div>
         </div>
+      <Footer newsletterInfo={actionData?.newsletterInfo}/>
     </>
   )
 }
