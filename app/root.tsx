@@ -6,8 +6,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-import stylesheet from "./tailwind.css?url"
-import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+import stylesheet from "./tailwind.css?url";
+import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 
 export default function App() {
   ModuleRegistry.registerModules([AllCommunityModule]);
@@ -29,5 +29,5 @@ export default function App() {
 }
 
 export const links: LinksFunction = () => [
-    { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: stylesheet },
 ];

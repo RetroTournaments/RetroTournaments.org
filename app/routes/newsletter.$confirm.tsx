@@ -1,13 +1,13 @@
 import { redirect } from "@remix-run/node";
-import { decrypt } from '../util/crypto'
-import { prisma } from '../util/prisma'
+import { decrypt } from "../util/crypto";
+import { prisma } from "../util/prisma";
 
-export async function loader({params}) {
-  let email
+export async function loader({ params }) {
+  let email;
   try {
-    email = decrypt(params.confirm)
-  } catch(e) {
-    return redirect("/")
+    email = decrypt(params.confirm);
+  } catch (e) {
+    return redirect("/");
   }
 
   const rec = await prisma.mailingList.update({
@@ -17,11 +17,11 @@ export async function loader({params}) {
     data: {
       active: true,
     },
-  })
+  });
 
-  return redirect("/?newslettersuccess=true")
+  return redirect("/?newslettersuccess=true");
 }
 
 export default function Index() {
-  return (<></>)
+  return <></>;
 }

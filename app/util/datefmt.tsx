@@ -1,14 +1,14 @@
-import moment from 'moment'
+import moment from "moment";
 
 export function dateFormatted(date_iso: string): string {
-    return moment(date_iso).format('MMMM Do, YYYY');
+  return moment(date_iso).format("MMMM Do, YYYY");
 }
 
 export function dateCellRenderer(obj): string {
-    const fmted = dateFormatted(obj.value);
-    return (
+  const fmted = dateFormatted(obj.value);
+  return (
     <>
-        <span> {fmted} </span>
+      <span> {fmted} </span>
     </>
-    )
+  );
 }

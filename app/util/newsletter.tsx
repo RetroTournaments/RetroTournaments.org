@@ -1,21 +1,28 @@
 import { json } from "@remix-run/node";
-import * as EmailValidator from 'email-validator';
-import { prisma } from './prisma'
-import { postmarkClient } from './postmark'
-import { encrypt, decrypt } from './crypto'
+import * as EmailValidator from "email-validator";
+import { prisma } from "./prisma";
+import { postmarkClient } from "./postmark";
+import { encrypt, decrypt } from "./crypto";
 
 // This currently is not called :)
 export async function contactNewSignup(email: string) {
   const link = process.env.BASE_URL + "/newsletter/" + encrypt(email);
 
-  const htmlBody = "Hello! \\n\\n" +
+  const htmlBody =
+    "Hello! \\n\\n" +
     "To confirm your interest in the RetroTournaments.org mailing list please click on this link:\\n\\n" +
-    "<a href=\"" + link + "\">" + link + "</a> \\n\\n" +
+    '<a href="' +
+    link +
+    '">' +
+    link +
+    "</a> \\n\\n" +
     "If you are not interested you can just ignore this email. Thanks.";
 
-  const textBody = "Hello! \n\n" +
+  const textBody =
+    "Hello! \n\n" +
     "To confirm your interest in the RetroTournaments.org mailing list please click on this link:\n\n" +
-    link + "\n\n" +
+    link +
+    "\n\n" +
     "If you are not interested you can just ignore this email. Thanks.";
 
   //const res = await postmarkClient.sendEmail({
@@ -27,31 +34,31 @@ export async function contactNewSignup(email: string) {
   //  "MessageStream": "outbound"
   //});
 
-  console.log(textBody)
+  console.log(textBody);
 
   await prisma.mailingList.update({
     where: { email: email },
     data: { contactedAt: new Date() },
-  })
+  });
 }
 
 export async function newsletterSignup(email: string) {
   if (!EmailValidator.validate(email)) {
-    return json({"newsletterInfo": "Error: Try another email address?"});
+    return json({ newsletterInfo: "Error: Try another email address?" });
   }
-  const thanks_ret = json({"newsletterInfo": "Thanks!"});
+  const thanks_ret = json({ newsletterInfo: "Thanks!" });
 
   email = email.toLowerCase();
   let list = await prisma.mailingList.findUnique({
     where: {
-      email: email
-    }
-  })
+      email: email,
+    },
+  });
   if (list) {
     // they are already confirmed, but maybe they just forgot to activate
     let now = new Date();
     if (!list.active) {
-      if (!list.contactedAt || (now - list.contactedAt) > 30 * 60 * 1000) {
+      if (!list.contactedAt || now - list.contactedAt > 30 * 60 * 1000) {
         //contactNewSignup(email)
       }
     }
@@ -68,14 +75,14 @@ export async function newsletterSignup(email: string) {
     },
   });
   if (prev > 3) {
-    return json({"newsletterInfo": "Sorry, try again later."});
+    return json({ newsletterInfo: "Sorry, try again later." });
   }
 
   list = await prisma.mailingList.create({
     data: {
-      email: email
-    }
-  })
+      email: email,
+    },
+  });
   //contactNewSignup(email);
   return thanks_ret;
 }
@@ -83,7 +90,7 @@ export async function newsletterSignup(email: string) {
 // This one can be used directly if there are other forms on the page
 export async function isNewsletterSignup(formData) {
   if (!formData.get("newsletter")) {
-    return null
+    return null;
   }
 
   const email = String(formData.get("newsletteremail"));

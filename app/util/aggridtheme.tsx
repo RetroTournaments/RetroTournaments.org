@@ -1,6 +1,5 @@
-import { themeQuartz, colorSchemeDarkBlue } from 'ag-grid-community';
+import { themeQuartz, colorSchemeDarkBlue } from "ag-grid-community";
 
 export function getTheme() {
-    return themeQuartz.withPart(colorSchemeDarkBlue);
+  return themeQuartz.withPart(colorSchemeDarkBlue);
 }
-

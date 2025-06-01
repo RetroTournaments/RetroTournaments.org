@@ -1,8 +1,8 @@
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import LandingPage from '../components/LandingPage'
-import MailingListSuccessAlert from '../components/MailingListSuccessAlert'
-import { newsletterOnlyAction } from '../util/newsletter'
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import LandingPage from "../components/LandingPage";
+import MailingListSuccessAlert from "../components/MailingListSuccessAlert";
+import { newsletterOnlyAction } from "../util/newsletter";
 import { useActionData } from "@remix-run/react";
 
 export async function action({ request }) {
@@ -17,7 +17,7 @@ export default function Index() {
       <MailingListSuccessAlert />
       <Navbar />
       <LandingPage />
-      <Footer newsletterInfo={actionData?.newsletterInfo}/>
+      <Footer newsletterInfo={actionData?.newsletterInfo} />
     </>
-  )
+  );
 }

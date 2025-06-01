@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar";
 import { Outlet } from "@remix-run/react";
 
 export default function Persons() {
@@ -7,5 +7,5 @@ export default function Persons() {
       <Navbar />
       <Outlet />
     </>
-  )
+  );
 }

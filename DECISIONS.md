@@ -6,12 +6,13 @@ Thus the first couple decisions are easy, and based on the ulterior goal of beco
 - [Remix](https://remix.run/) as the main app framework.
 - [Typescript](https://www.typescriptlang.org/) as the main programming language.
 
-
 ## Setup
+
 Followed the main [Remix Quickstart](https://remix.run/docs/en/main/start/quickstart) guide, kinda roughly.
 First priority is to have `npm start dev` launch something that I can quickly iterate with (live reload!).
 
 ## Database stuff
+
 Going to use Prisma (another transfer from work) and start with sqlite because I've been using sqlite previously. :|
 
 ```
@@ -20,6 +21,7 @@ npx prisma init --datasource-provider sqlite
 ```
 
 At times to maintain schema format
+
 ```
 npx prisma format
 ```
@@ -31,6 +33,7 @@ npx prisma migrate dev --name init
 ```
 
 ## Tailwind
+
 Tailwind gives me lots of css stuff.
 Seems pretty standard?
 Followed instructions [here](https://tailwindcss.com/docs/guides/remix)
@@ -41,6 +44,7 @@ npx tailwindcss init --ts -p
 ```
 
 ## daisyUI
+
 This is where I think things go off the rails.
 It's very difficult to choose a UI library it seems.
 And well, We'll try this one for now, but I don't think I'm happy with any of them.
@@ -52,20 +56,23 @@ vim tailwind.config.js
 ```
 
 ## postmark
+
 For delivering emails.
 Initial decision because something was needed and this is what work uses!
 
-
 ## AGGrid
+
 Because headless stuff required me to DO STUFF that I don't know how to do.
 
 ## stripe
+
 Because duh
 
 ## Deploying
+
 Going to try netlify because well it seems like it might integrate nicely with github?
-Unfortunately 
-    https://docs.netlify.com/frameworks/remix/#create-a-new-remix-app-to-deploy-to-netlify
+Unfortunately
+https://docs.netlify.com/frameworks/remix/#create-a-new-remix-app-to-deploy-to-netlify
 So I had to redo much of the setup.
 
 ```
@@ -83,4 +90,15 @@ npm install stripe
 Now I need to change the database!? Going to try:
 https://www.netlify.com/integrations/prisma
 
+## Prettier
+https://prettier.io/docs/install
 
+```
+npm install --save-dev --save-exact prettier
+node --eval "fs.writeFileSync('.prettierrc','{}\n')"
+node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"
+```
+
+```
+npx prettier . --write
+```

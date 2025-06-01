@@ -21,11 +21,11 @@ Each round result contains a `result_code` which has the following interpretatio
 ```
 result_code |   Meaning
 ---------------------------------------------------------------------------------
-0           |   SUCCESS. The person successfully started and completed the 
+0           |   SUCCESS. The person successfully started and completed the
             |   speedrun within the time limit.
 1           |   DNF. The person did not finish the speedrun.
 2           |   DNS. The person did not start the speedrun.
-3           |   WLK. This person got a 'walkover' and won because every other 
+3           |   WLK. This person got a 'walkover' and won because every other
             |   scheduled person did not start or otherwise forfeited.
 ```
 
@@ -46,4 +46,3 @@ To dump the schema and data (roughly):
 sqlite3 crgadb.db ".schema --indent" > schema.sql
 sqlite3 crgadb.db .dump | grep "^INSERT" > data.sql
 ```
-
