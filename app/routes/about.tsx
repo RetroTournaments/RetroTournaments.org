@@ -12,9 +12,6 @@ export default function About() {
   const actionData = useActionData();
 
   return (
-    <>
-      <Navbar />
-
       <div className="flex flex-row items-center justify-center mx-auto p-4">
         <article className="prose max-w-3xl">
           <h1>Who we are</h1>
@@ -56,8 +53,5 @@ export default function About() {
           </p>
         </article>
       </div>
-
-      <Footer newsletterInfo={actionData?.newsletterInfo} />
-    </>
   );
 }

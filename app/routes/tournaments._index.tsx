@@ -18,17 +18,14 @@ export default function PersonsIndex() {
   const actionData = useActionData();
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
-        <div className="w-full">
-          <article className="prose p-4">
-            <h1> Tournaments </h1>
-          </article>
-        </div>
-
-        <TournamentGrid rowData={rowData} />
+    <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
+      <div className="w-full">
+        <article className="prose p-4">
+          <h1> Tournaments </h1>
+        </article>
       </div>
-      <Footer newsletterInfo={actionData?.newsletterInfo} />
-    </>
+
+      <TournamentGrid rowData={rowData} />
+    </div>
   );
 }

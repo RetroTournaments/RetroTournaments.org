@@ -4,13 +4,24 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useActionData,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import stylesheet from "./tailwind.css?url";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { isNewsletterSignup } from "./util/newsletter";
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  return await isNewsletterSignup(formData);
+}
 
 export default function App() {
   ModuleRegistry.registerModules([AllCommunityModule]);
+  const actionData = useActionData();
+
   return (
     <html lang="en" className="h-full">
       <head>
@@ -20,7 +31,9 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
+        <Navbar />
         <Outlet />
+        <Footer newsletterInfo={actionData?.newsletterInfo} />
         <ScrollRestoration />
         <Scripts />
       </body>

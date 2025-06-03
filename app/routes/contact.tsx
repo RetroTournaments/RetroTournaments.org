@@ -12,9 +12,6 @@ export default function Contact() {
   const actionData = useActionData();
 
   return (
-    <>
-      <Navbar />
-
       <div className="flex flex-row items-center justify-center mx-auto p-4">
         <article className="prose max-w-3xl">
           <h1> Contact </h1>
@@ -38,8 +35,5 @@ export default function Contact() {
           </p>
         </article>
       </div>
-
-      <Footer newsletterInfo={actionData?.newsletterInfo} />
-    </>
   );
 }
