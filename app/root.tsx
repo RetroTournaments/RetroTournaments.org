@@ -31,9 +31,13 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Navbar />
-        <Outlet />
-        <Footer newsletterInfo={actionData?.newsletterInfo} />
+        <main className="grid grid-rows-[auto_1fr_auto] min-h-screen">
+          <Navbar />
+          <div className="py-6">
+            <Outlet />
+          </div>
+          <Footer newsletterInfo={actionData?.newsletterInfo} />
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>
