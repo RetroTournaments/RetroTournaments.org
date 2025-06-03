@@ -28,8 +28,13 @@ export default function Contact() {
 
           <p>
             You can also join the{" "}
-            <a href="https://discord.gg/kpYYyw8B5P">Discord↗</a>, and leave a
-            message in the relevant channel.
+            <a
+              href="https://discord.gg/kpYYyw8B5P"
+              className="after:content-['_↗']"
+            >
+              Discord
+            </a>
+            , and leave a message in the relevant channel.
           </p>
         </article>
       </div>

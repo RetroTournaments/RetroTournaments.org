@@ -26,8 +26,11 @@ export default function About() {
           <p>
             Retrotournaments.org is entirely ran by volunteers coordinating on
             our{" "}
-            <a href="https://discord.gg/kpYYyw8B5P" className="link link-hover">
-              Discord↗
+            <a
+              href="https://discord.gg/kpYYyw8B5P"
+              className="link link-hover after:content-['_↗']"
+            >
+              Discord
             </a>
             , we rely on your <Link to="/support">support</Link> in order to
             develop these competitions and expand around the globe. Our

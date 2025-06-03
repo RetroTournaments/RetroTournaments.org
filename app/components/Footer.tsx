@@ -28,12 +28,15 @@ function Footer({ newsletterInfo }) {
             </Link>
             <a
               href="https://www.youtube.com/flibidydibidy"
-              className="link link-hover"
+              className="link link-hover after:content-['_↗']"
             >
-              YouTube↗
+              YouTube
             </a>
-            <a href="https://discord.gg/kpYYyw8B5P" className="link link-hover">
-              Discord↗
+            <a
+              href="https://discord.gg/kpYYyw8B5P"
+              className="link link-hover after:content-['_↗']"
+            >
+              Discord
             </a>
           </nav>
 

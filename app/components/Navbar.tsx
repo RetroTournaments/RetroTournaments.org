@@ -57,12 +57,20 @@ function Navbar() {
                 Community
                 <ul className="p-2">
                   <li>
-                    <a href="https://www.youtube.com/flibidydibidy">
-                      YouTube↗
+                    <a
+                      href="https://www.youtube.com/flibidydibidy"
+                      className="after:content-['_↗']"
+                    >
+                      YouTube
                     </a>
                   </li>
                   <li>
-                    <a href="https://discord.gg/kpYYyw8B5P">Discord↗</a>
+                    <a
+                      href="https://discord.gg/kpYYyw8B5P"
+                      className="after:content-['_↗']"
+                    >
+                      Discord
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -70,7 +78,12 @@ function Navbar() {
                 Technology
                 <ul className="p-2">
                   <li>
-                    <a href="https://github.com/RetroTournaments/">Github↗</a>
+                    <a
+                      href="https://github.com/RetroTournaments/"
+                      className="after:content-['_↗']"
+                    >
+                      Github
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -120,10 +133,20 @@ function Navbar() {
               </div>
               <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li>
-                  <a href="https://www.youtube.com/flibidydibidy">YouTube↗</a>
+                  <a
+                    href="https://www.youtube.com/flibidydibidy"
+                    className="after:content-['_↗']"
+                  >
+                    YouTube
+                  </a>
                 </li>
                 <li>
-                  <a href="https://discord.gg/kpYYyw8B5P">Discord↗</a>
+                  <a
+                    href="https://discord.gg/kpYYyw8B5P"
+                    className="after:content-['_↗']"
+                  >
+                    Discord
+                  </a>
                 </li>
               </ul>
             </div>
@@ -133,7 +156,12 @@ function Navbar() {
               </div>
               <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li>
-                  <a href="https://github.com/RetroTournaments/">Github↗</a>
+                  <a
+                    href="https://github.com/RetroTournaments/"
+                    className="after:content-['_↗']"
+                  >
+                    Github
+                  </a>
                 </li>
               </ul>
             </div>
