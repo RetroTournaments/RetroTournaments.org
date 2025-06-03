@@ -82,7 +82,7 @@ function Navbar() {
                       href="https://github.com/RetroTournaments/"
                       className="after:content-['_↗']"
                     >
-                      Github
+                      GitHub
                     </a>
                   </li>
                 </ul>
@@ -160,7 +160,7 @@ function Navbar() {
                     href="https://github.com/RetroTournaments/"
                     className="after:content-['_↗']"
                   >
-                    Github
+                    GitHub
                   </a>
                 </li>
               </ul>
