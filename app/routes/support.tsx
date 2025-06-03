@@ -13,6 +13,11 @@ export async function action({ request }) {
     return await isNewsletterSignup(formData);
   }
 
+  // Check if Stripe is available
+  if (!stripe) {
+    console.warn("Stripe API key not configured - payment processing disabled");
+  }
+
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
