@@ -24,15 +24,12 @@ export default function Tournaments() {
   const tournament = useLoaderData();
   const actionData = useActionData();
   return (
-    <>
-      <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
-        <div className="w-full">
-          <TournamentSummary tournament={tournament} />
-          <TournamentFinalStandings tournament={tournament} />
-          <TournamentRoundResults tournament={tournament} />
-        </div>
+    <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
+      <div className="w-full">
+        <TournamentSummary tournament={tournament} />
+        <TournamentFinalStandings tournament={tournament} />
+        <TournamentRoundResults tournament={tournament} />
       </div>
-      <Footer newsletterInfo={actionData?.newsletterInfo} />
-    </>
+    </div>
   );
 }

@@ -15,9 +15,7 @@ export default function Index() {
   return (
     <>
       <MailingListSuccessAlert />
-      <Navbar />
       <LandingPage />
-      <Footer newsletterInfo={actionData?.newsletterInfo} />
     </>
   );
 }
