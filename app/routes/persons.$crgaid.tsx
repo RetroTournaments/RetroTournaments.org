@@ -29,17 +29,14 @@ export default function Persons() {
   const actionData = useActionData();
   const person = useLoaderData();
   return (
-    <>
-      <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
-        <div className="w-full">
-          <PersonHeading person={person} />
-          <PersonSummary person={person} />
-          <PersonTournaments person={person} />
-          <PersonRecords person={person} />
-          <PersonRandom />
-        </div>
+    <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
+      <div className="w-full">
+        <PersonHeading person={person} />
+        <PersonSummary person={person} />
+        <PersonTournaments person={person} />
+        <PersonRecords person={person} />
+        <PersonRandom />
       </div>
-      <Footer newsletterInfo={actionData?.newsletterInfo} />
-    </>
+    </div>
   );
 }

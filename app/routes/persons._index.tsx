@@ -19,20 +19,17 @@ export default function PersonsIndex() {
   const rowData = useLoaderData();
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
-        <div className="w-full">
-          <article className="prose p-4">
-            <h1> Persons </h1>
-          </article>
-        </div>
-
-        <PersonGrid rowData={rowData} />
+    <div className="flex flex-col items-center justify-center mx-auto p-4 w-full max-w-4xl">
+      <div className="w-full">
         <article className="prose p-4">
-          <PersonRandom />
+          <h1> Persons </h1>
         </article>
       </div>
-      <Footer newsletterInfo={actionData?.newsletterInfo} />
-    </>
+
+      <PersonGrid rowData={rowData} />
+      <article className="prose p-4">
+        <PersonRandom />
+      </article>
+    </div>
   );
 }
