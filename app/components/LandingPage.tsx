@@ -33,6 +33,7 @@ function YoutubeVideoHighlights() {
     <>
       <div className="flex justify-center">
         <div className="max-w-3xl w-full pb-4">
+          <div className="divider"></div>
           <h1 className="text-2xl font-bold">
             Check out these highlights from a past event
           </h1>
@@ -161,7 +162,6 @@ function LandingPage() {
   return (
     <>
       <WelcomeTextHero />
-      <CountdownToNext />
       <YoutubeVideoHighlights />
     </>
   );
