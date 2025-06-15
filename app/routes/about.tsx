@@ -18,7 +18,11 @@ export default function About() {
         <p>
           We are a group of speedrunners, and speedrunning enthusiasts, who are
           working to celebrate retro gaming, friendly competition, and the joy
-          that comes from achieving your goals.
+          that comes from achieving your goals. We also created the{" "}
+          <Link to="/sta" className="text-accent">
+            simultaneous time attack
+          </Link>{" "}
+          format.
         </p>
         <p>
           Retrotournaments.org is entirely ran by volunteers coordinating on our{" "}

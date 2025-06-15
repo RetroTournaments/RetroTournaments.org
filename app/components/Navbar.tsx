@@ -35,6 +35,9 @@ function Navbar() {
                     <Link to="/about">About</Link>
                   </li>
                   <li>
+                    <Link to="/sta">STA Format</Link>
+                  </li>
+                  <li>
                     <Link to="/contact">Contact</Link>
                   </li>
                 </ul>
@@ -105,6 +108,9 @@ function Navbar() {
               <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li>
                   <Link to="/about">About</Link>
+                </li>
+                <li>
+                  <Link to="/sta">STA Format</Link>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>

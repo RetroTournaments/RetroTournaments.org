@@ -91,6 +91,7 @@ Now I need to change the database!? Going to try:
 https://www.netlify.com/integrations/prisma
 
 ## Prettier
+
 https://prettier.io/docs/install
 
 ```

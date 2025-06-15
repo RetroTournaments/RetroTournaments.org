@@ -11,9 +11,9 @@ function WelcomeTextHero() {
             <h1 className="text-5xl font-bold">WELCOME TO RETRO TOURNAMENTS</h1>
             <p className="pt-6">
               Home of the{" "}
-              <b>
-                <i>Simultaneous Time Attack</i>
-              </b>
+              <Link to="/sta" className="font-bold italic text-accent">
+                Simultaneous Time Attack
+              </Link>
               . A fresh new competitive speedrunning format where multiple
               runners compete on identical setups combined onto the{" "}
               <b>

@@ -11,6 +11,9 @@ function Footer({ newsletterInfo }) {
             <Link to="/about" className="link link-hover">
               About
             </Link>
+            <Link to="/sta" className="link link-hover">
+              STA Format
+            </Link>
             <Link to="/contact" className="link link-hover">
               Contact
             </Link>
