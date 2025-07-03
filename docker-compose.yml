@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:17.2
+    restart: always
+    environment:
+      POSTGRES_DB: rto-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: lakitu
+    ports:
+      - "6432:5432"

@@ -22,6 +22,7 @@ async function main() {
   //        resultCode: 0
   //    },
   //})
+  await prisma.personalBest.deleteMany({})
   const results = await prisma.tournamentRoundResult.findMany({
     select: {
       id: true,
@@ -82,7 +83,7 @@ async function main() {
       lastElapsed = undefined;
     }
 
-    await prisma.personalBest.create({
+    let v = await prisma.personalBest.create({
       data: {
         person: {
           connect: {
