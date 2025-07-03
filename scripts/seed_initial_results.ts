@@ -54,12 +54,20 @@ async function main() {
 
     const result = get_table_values(line);
     if (result.table == "person") {
-      const person = await prisma.person.create({
-        data: {
-          alias: result.values[2],
-          crgaid: result.values[1],
-        },
+      const crgaid = result.values[1];
+      let person = await prisma.person.findUnique({
+          where: {
+              crgaid: crgaid
+          }
       });
+      if (person === null) {
+          person = await prisma.person.create({
+            data: {
+              alias: result.values[2],
+              crgaid: crgaid
+            },
+          });
+      }
       person_id[result.values[0]] = person.id;
       console.log("Add Person: ", person.alias, person.crgaid);
     } else if (result.table == "event") {
