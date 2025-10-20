@@ -41,3 +41,7 @@ npm run dev
 ```
 
 Connect to `http://localhost:5173`
+
+## Deployment
+
+Everything is linked to netlify via my github.
